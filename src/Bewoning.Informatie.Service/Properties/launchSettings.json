@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "BewoningService": {
+    "Bewoning.Informatie.Service": {
       "commandName": "Project",
       "launchBrowser": false,
       "launchUrl": "swagger",

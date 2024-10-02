@@ -20,6 +20,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BewoningService\BewoningService.csproj" />
+    <ProjectReference Include="..\BewoningService\Bewoning.Informatie.Service.csproj" />
   </ItemGroup>
 </Project>
