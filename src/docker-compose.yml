@@ -1,0 +1,7 @@
+services:
+  bewoning-informatie-service:
+    container_name: bewoning-informatie-service
+    image: ghcr.io/brp-api/bewoning-informatie-service:latest
+    build:
+      context: .
+      dockerfile: Bewoning.Informatie.Service/Dockerfile
