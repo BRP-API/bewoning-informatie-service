@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{37783004
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BewoningProxy.Tests", "BewoningProxy.Tests\BewoningProxy.Tests.csproj", "{882C4219-CC9D-49B1-8D40-38794AEB80EF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bewoning.Informatie.Service", "Bewoning.Informatie.Service\Bewoning.Informatie.Service.csproj", "{2E6B500E-C02B-4E44-963B-57A0F99CC8BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bewoning.Data.Mock", "Bewoning.Data.Mock\Bewoning.Data.Mock.csproj", "{2E6B500E-C02B-4E44-963B-57A0F99CC8BC}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "..\docker-compose.dcproj", "{22EE9BD9-E6FA-463C-AEF7-D6608112C338}"
 EndProject
