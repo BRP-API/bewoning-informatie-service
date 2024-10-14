@@ -1,4 +1,9 @@
 services:
+  bewoning-informatie-service:
+    container_name: bewoning-informatie-service
+    build:
+      context: .
+      dockerfile: Bewoning.Informatie.Service/Dockerfile
   bewoning-data-mock:
     container_name: bewoning-data-mock
     image: ghcr.io/brp-api/bewoning-data-mock:latest

@@ -2,7 +2,7 @@
 using HaalCentraal.BewoningService.Controllers;
 using HaalCentraal.BewoningService.Entities;
 
-namespace BewoningService.Tests;
+namespace Bewoning.Data.Mock.Tests;
 
 public class AdreshoudingBetweenTests
 {

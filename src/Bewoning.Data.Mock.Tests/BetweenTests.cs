@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using HaalCentraal.BewoningService.Controllers;
 
-namespace BewoningService.Tests;
+namespace Bewoning.Data.Mock.Tests;
 
 public class BetweenTests
 {

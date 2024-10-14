@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using HaalCentraal.BewoningService.Repositories;
 
-namespace BewoningService.Tests;
+namespace Bewoning.Data.Mock.Tests;
 
 public class ToGbaDatumTests
 {

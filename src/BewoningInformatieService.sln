@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F86385B9-5A94-490E-94DA-EF3BBD1B0D30}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BewoningProxy", "BewoningProxy\BewoningProxy.csproj", "{AC16FCA1-F543-4956-A6C2-FD32A4E885C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bewoning.Informatie.Service", "Bewoning.Informatie.Service\Bewoning.Informatie.Service.csproj", "{AC16FCA1-F543-4956-A6C2-FD32A4E885C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{37783004-F987-4A51-BDE1-389C5282090B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BewoningProxy.Tests", "BewoningProxy.Tests\BewoningProxy.Tests.csproj", "{882C4219-CC9D-49B1-8D40-38794AEB80EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bewoning.Informatie.Service.Tests", "Bewoning.Informatie.Service.Tests\Bewoning.Informatie.Service.Tests.csproj", "{882C4219-CC9D-49B1-8D40-38794AEB80EF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bewoning.Data.Mock", "Bewoning.Data.Mock\Bewoning.Data.Mock.csproj", "{2E6B500E-C02B-4E44-963B-57A0F99CC8BC}"
 EndProject
@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bewoning.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bewoning.Validatie", "Bewoning.Validatie\Bewoning.Validatie.csproj", "{74505FB7-B6BB-4BB9-BFA5-BA624D04D489}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BewoningService.Tests", "BewoningService.Tests\BewoningService.Tests.csproj", "{53AC05CB-986E-4672-9856-40C3723C3326}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bewoning.Data.Mock.Tests", "Bewoning.Data.Mock.Tests\Bewoning.Data.Mock.Tests.csproj", "{53AC05CB-986E-4672-9856-40C3723C3326}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

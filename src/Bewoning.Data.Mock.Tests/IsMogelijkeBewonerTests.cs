@@ -4,7 +4,7 @@ using HaalCentraal.BewoningService.Entities;
 using HaalCentraal.BewoningService.Generated;
 using HaalCentraal.BewoningService.Repositories;
 
-namespace BewoningService.Tests;
+namespace Bewoning.Data.Mock.Tests;
 
 public class IsMogelijkeBewonerTests
 {

@@ -3,7 +3,7 @@ using HaalCentraal.BewoningService.Controllers;
 using HaalCentraal.BewoningService.Generated;
 using HaalCentraal.BewoningService.Repositories;
 
-namespace BewoningService.Tests;
+namespace Bewoning.Data.Mock.Tests;
 
 public class ToBewoningMetPeriodeTests
 {
