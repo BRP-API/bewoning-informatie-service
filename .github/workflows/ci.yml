@@ -152,7 +152,7 @@ jobs:
             ${{ env.APP_CONTAINER_IMAGE }}:latest
             ${{ env.APP_CONTAINER_IMAGE }}:${{ steps.app-version.outputs.version }}-latest
             ${{ env.APP_CONTAINER_IMAGE }}:${{ steps.app-version.outputs.version }}-${{ steps.build-run-id.outputs.build-run }}
-            ${{ env.APP_CONTAINER_IMAGE }}:${{ steps.app-version.outputs.version }}-${{ github.sha }}
+            ${{ env.APP_CONTAINER_IMAGE }}:${{ github.sha }}
       - name: Build & push mock container images naar registry
         if: always() && (steps.changed-project.outputs.mock == 'true' || inputs.publishType == 'mock')
         uses: docker/build-push-action@v6
@@ -165,4 +165,4 @@ jobs:
             ${{ env.MOCK_CONTAINER_IMAGE }}:latest
             ${{ env.MOCK_CONTAINER_IMAGE }}:${{ steps.mock-version.outputs.version }}-latest
             ${{ env.MOCK_CONTAINER_IMAGE }}:${{ steps.mock-version.outputs.version }}-${{ steps.build-run-id.outputs.build-run }}
-            ${{ env.MOCK_CONTAINER_IMAGE }}:${{ steps.mock-version.outputs.version }}-${{ github.workflow_sha }}
+            ${{ env.MOCK_CONTAINER_IMAGE }}:${{ github.workflow_sha }}
