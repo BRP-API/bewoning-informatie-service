@@ -9,5 +9,6 @@ else
 fi
 
 docker compose \
+    -f .docker/bewoning-data-service.yml \
     -f .docker/bewoning-informatie-service.yml \
     down --volumes

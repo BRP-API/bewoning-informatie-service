@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bewoning.Informatie.Service
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bewoning.Data.Mock", "Bewoning.Data.Mock\Bewoning.Data.Mock.csproj", "{2E6B500E-C02B-4E44-963B-57A0F99CC8BC}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "..\docker-compose.dcproj", "{22EE9BD9-E6FA-463C-AEF7-D6608112C338}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{22EE9BD9-E6FA-463C-AEF7-D6608112C338}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bewoning.Infrastructure", "Bewoning.Infrastructure\Bewoning.Infrastructure.csproj", "{E306FEEF-6A56-4E43-82EC-6815CA02E964}"
 EndProject

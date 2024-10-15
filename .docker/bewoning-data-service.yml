@@ -1,9 +1,9 @@
 version: '3.7'
 
 services:
-  bewoning-informatie-service:
-    container_name: bewoning-informatie-service
-    image: ghcr.io/brp-api/bewoning-informatie-service:latest
+  bewoning-data-service:
+    container_name: bewoning-data-service
+    image: ghcr.io/brp-api/bewoning-data-service:latest
     environment:
       - Database__Host=postgres
       - Database__Username=root
@@ -13,14 +13,12 @@ services:
       - ASPNETCORE_URLS=http://+;
       - ProtocolleringAuthorization__UseAuthorizationChecks=false
       - ProtocolleringAuthorization__UseProtocollering=false
-      - Ecs__Path=/var/log/bewoning-informatie-service.json
-      - Ecs__SecuredPath=/var/log/bewoning-informatie-service-secured.json
+      - Ecs__Path=/var/log/bewoning-data-service.json
+      - Ecs__SecuredPath=/var/log/bewoning-data-service-secured.json
       - Ecs__FileSizeLimitBytes=1048576
       # - Ecs__RetainedFileCountLimit=5
-      - Routes__0__DownstreamHostAndPorts__0__Host=bewoning-data-service
-      - Routes__0__DownstreamHostAndPorts__0__Port=80
     ports:
-      - "5000:80"
+      - "8000:80"
     volumes:
       - ../test-data/logs:/var/log
     networks:
