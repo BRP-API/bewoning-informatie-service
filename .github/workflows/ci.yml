@@ -45,6 +45,12 @@ jobs:
         with:
           path-csproj-file: ${{ env.APP_CSPROJ_FILE_PATH }}
           build-run: ${{ steps.build-run-id.outputs.build-run }}
+      - name: Zet versie met build run in mock csproj
+        uses: ./.github/actions/zet-versie-met-build-run-in-csproj
+        id: mock-version
+        with:
+          path-csproj-file: ${{ env.MOCK_CSPROJ_FILE_PATH }}
+          build-run: ${{ steps.build-run-id.outputs.build-run }}
 
       - name: Bepaal gewijzigd project
         uses: dorny/paths-filter@v3
