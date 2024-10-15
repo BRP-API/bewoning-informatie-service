@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using HaalCentraal.BewoningService.Repositories;
+using Bewoning.Data.Mock.Repositories;
 
 namespace Bewoning.Data.Mock.Tests;
 

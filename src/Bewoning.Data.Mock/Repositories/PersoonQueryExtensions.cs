@@ -1,7 +1,7 @@
-﻿using HaalCentraal.BewoningService.Entities;
-using HaalCentraal.BewoningService.Generated;
+﻿using Bewoning.Data.Mock.Entities;
+using Bewoning.Data.Mock.Generated;
 
-namespace HaalCentraal.BewoningService.Repositories;
+namespace Bewoning.Data.Mock.Repositories;
 
 public static class PersoonQueryExtensions
 {

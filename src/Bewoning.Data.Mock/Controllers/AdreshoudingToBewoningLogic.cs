@@ -1,10 +1,10 @@
-﻿using Bewoning.Validatie;
-using HaalCentraal.BewoningService.Entities;
-using HaalCentraal.BewoningService.Generated;
-using HaalCentraal.BewoningService.Repositories;
+﻿using Bewoning.Data.Mock.Entities;
+using Bewoning.Data.Mock.Generated;
+using Bewoning.Data.Mock.Repositories;
+using Brp.Shared.Infrastructure.Utils;
 using System.Text.RegularExpressions;
 
-namespace HaalCentraal.BewoningService.Controllers;
+namespace Bewoning.Data.Mock.Controllers;
 
 public static class AdreshoudingToBewoningLogic
 {

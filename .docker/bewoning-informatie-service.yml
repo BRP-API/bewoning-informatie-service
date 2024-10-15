@@ -1,26 +1,17 @@
-version: '3.7'
-
 services:
   bewoning-informatie-service:
     container_name: bewoning-informatie-service
     image: ghcr.io/brp-api/bewoning-informatie-service:latest
     environment:
-      - Database__Host=postgres
-      - Database__Username=root
-      - Database__Password=root
-      - Database__Database=rvig_haalcentraal_testdata
-      - HaalcentraalApi__MaxSearchResults=10
-      - ASPNETCORE_URLS=http://+;
-      - ProtocolleringAuthorization__UseAuthorizationChecks=false
-      - ProtocolleringAuthorization__UseProtocollering=false
+      - ASPNETCORE_ENVIRONMENT=Release
+      - ASPNETCORE_URLS=http://+:5000
       - Ecs__Path=/var/log/bewoning-informatie-service.json
       - Ecs__SecuredPath=/var/log/bewoning-informatie-service-secured.json
-      - Ecs__FileSizeLimitBytes=1048576
-      # - Ecs__RetainedFileCountLimit=5
+      - Routes__0__DownstreamScheme=http
       - Routes__0__DownstreamHostAndPorts__0__Host=bewoning-data-service
       - Routes__0__DownstreamHostAndPorts__0__Port=80
     ports:
-      - "5000:80"
+      - "5000:5000"
     volumes:
       - ../test-data/logs:/var/log
     networks:

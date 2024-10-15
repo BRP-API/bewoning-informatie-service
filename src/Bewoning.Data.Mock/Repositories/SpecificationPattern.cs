@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace HaalCentraal.BewoningService.Repositories;
+namespace Bewoning.Data.Mock.Repositories;
 
 internal class ParameterReplacer : ExpressionVisitor
 {

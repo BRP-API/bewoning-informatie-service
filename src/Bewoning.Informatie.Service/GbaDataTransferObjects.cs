@@ -14,7 +14,7 @@
 #pragma warning disable 3016 // Disable "CS3016 Arrays as attribute arguments is not CLS-compliant"
 #pragma warning disable 8603 // Disable "CS8603 Possible null reference return"
 
-namespace HaalCentraal.BewoningProxy.Generated.Gba
+namespace Bewoning.Informatie.Service.Generated.Gba
 {
     using System = global::System;
 

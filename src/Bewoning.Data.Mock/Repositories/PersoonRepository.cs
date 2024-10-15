@@ -1,8 +1,8 @@
-﻿using HaalCentraal.BewoningService.Entities;
-using HaalCentraal.BewoningService.Generated;
+﻿using Bewoning.Data.Mock.Entities;
+using Bewoning.Data.Mock.Generated;
 using Newtonsoft.Json;
 
-namespace HaalCentraal.BewoningService.Repositories;
+namespace Bewoning.Data.Mock.Repositories;
 
 public class PersoonRepository
 {

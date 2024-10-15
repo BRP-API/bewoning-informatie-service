@@ -1,10 +1,10 @@
-﻿using Bewoning.Validatie;
-using HaalCentraal.BewoningService.Generated;
-using HaalCentraal.BewoningService.Repositories;
+﻿using Bewoning.Data.Mock.Generated;
+using Bewoning.Data.Mock.Repositories;
+using Brp.Shared.Infrastructure.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
-namespace HaalCentraal.BewoningService.Controllers;
+namespace Bewoning.Data.Mock.Controllers;
 
 [ApiController]
 public class BewoningController : Generated.ControllerBase
@@ -31,13 +31,13 @@ public class BewoningController : Generated.ControllerBase
         };
 
         _diagnosticContext.Set("response.body", retval, true);
-        
+
         return Ok(retval);
     }
 
     private async Task<GbaBewoningenQueryResponse> Handle(BewoningMetPeildatum q)
     {
-        var personen = await _repository.Zoek<BewoningMetPeildatum>(q);
+        var personen = await _repository.Zoek(q);
 
         return new GbaBewoningenQueryResponse
         {
@@ -49,8 +49,8 @@ public class BewoningController : Generated.ControllerBase
 
     private async Task<GbaBewoningenQueryResponse> Handle(BewoningMetPeriode q)
     {
-        var personen = await _repository.Zoek<BewoningMetPeriode>(q);
-                                          
+        var personen = await _repository.Zoek(q);
+
 
         return new GbaBewoningenQueryResponse
         {

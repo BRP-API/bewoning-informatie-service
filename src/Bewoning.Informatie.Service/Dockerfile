@@ -11,8 +11,8 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Bewoning.Informatie.Service/Bewoning.Informatie.Service.csproj", "Bewoning.Informatie.Service/"]
-COPY ["Bewoning.Infrastructure/Bewoning.Infrastructure.csproj", "Bewoning.Infrastructure/"]
-COPY ["Bewoning.Validatie/Bewoning.Validatie.csproj", "Bewoning.Validatie/"]
+COPY ["Brp.Shared.Infrastructure/Brp.Shared.Infrastructure.csproj", "Brp.Shared.Infrastructure/"]
+COPY ["Serilog.Sinks.PersistentFile/Serilog.Sinks.PersistentFile.csproj", "Serilog.Sinks.PersistentFile/"]
 RUN dotnet restore "./Bewoning.Informatie.Service/Bewoning.Informatie.Service.csproj"
 COPY . .
 WORKDIR "/src/Bewoning.Informatie.Service"

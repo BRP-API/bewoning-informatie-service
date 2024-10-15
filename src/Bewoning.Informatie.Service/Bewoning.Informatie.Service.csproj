@@ -9,21 +9,15 @@
     <Version>2.0.1</Version>
   </PropertyGroup>
   <ItemGroup>
-    <AssemblyAttribute Include="Bewoning.Infrastructure.Logging.ApiVersionAttribute">
-      <_Parameter1>2.0.0</_Parameter1>
-    </AssemblyAttribute>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
-    <PackageReference Include="Ocelot" Version="23.3.3" />
+    <PackageReference Include="Ocelot" Version="23.3.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="configuration\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bewoning.Infrastructure\Bewoning.Infrastructure.csproj" />
-    <ProjectReference Include="..\Bewoning.Validatie\Bewoning.Validatie.csproj" />
+    <ProjectReference Include="..\Brp.Shared.Infrastructure\Brp.Shared.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

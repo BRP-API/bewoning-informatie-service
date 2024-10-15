@@ -1,8 +1,9 @@
-﻿using Bewoning.Validatie;
-using HaalCentraal.BewoningService.Entities;
+﻿using Bewoning.Data.Mock.Entities;
+using Bewoning.Data.Mock.Repositories;
+using Brp.Shared.Infrastructure.Utils;
 using System.Linq.Expressions;
 
-namespace HaalCentraal.BewoningService.Repositories;
+namespace Bewoning.Data.Mock.Repositories;
 
 public class PeildatumSpecification : Specification<Persoon>
 {
@@ -21,9 +22,9 @@ public class PeildatumSpecification : Specification<Persoon>
                           persoon.Verblijfplaats.DatumAanvangAdreshouding.ToNumber() <= _peildatum.ToNumber() &&
                           (persoon.Verblijfplaats.DatumEindeAdreshouding == null
                            ||
-                           (persoon.Verblijfplaats.DatumEindeAdreshouding != null &&
+                           persoon.Verblijfplaats.DatumEindeAdreshouding != null &&
                             persoon.Verblijfplaats.DatumEindeAdreshouding.ToNumber() > _peildatum.ToNumber()
-                           )
+
                           );
     }
 }

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using HC = HaalCentraal.BewoningProxy.Generated;
-using Gba = HaalCentraal.BewoningProxy.Generated.Gba;
+using HC = Bewoning.Informatie.Service.Generated;
+using Gba = Bewoning.Informatie.Service.Generated.Gba;
 
-namespace BewoningProxy.Profiles;
+namespace Bewoning.Informatie.Service.Profiles;
 
 public class BewonerProfile : Profile
 {

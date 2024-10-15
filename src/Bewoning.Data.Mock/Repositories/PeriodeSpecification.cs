@@ -1,8 +1,9 @@
-﻿using Bewoning.Validatie;
-using HaalCentraal.BewoningService.Entities;
+﻿using Bewoning.Data.Mock.Entities;
+using Bewoning.Data.Mock.Repositories;
+using Brp.Shared.Infrastructure.Utils;
 using System.Linq.Expressions;
 
-namespace HaalCentraal.BewoningService.Repositories;
+namespace Bewoning.Data.Mock.Repositories;
 
 public class PeriodeSpecification : Specification<Persoon>
 {
@@ -23,9 +24,9 @@ public class PeriodeSpecification : Specification<Persoon>
                           _datumTot.ToNumber() >= persoon.Verblijfplaats.DatumAanvangAdreshouding.ToNumber() &&
                           (persoon.Verblijfplaats.DatumEindeAdreshouding == null
                            ||
-                           (persoon.Verblijfplaats.DatumEindeAdreshouding != null &&
+                           persoon.Verblijfplaats.DatumEindeAdreshouding != null &&
                            _datumVan.ToNumber() < persoon.Verblijfplaats.DatumEindeAdreshouding.ToNumber()
-                           )
+
                           );
     }
 }

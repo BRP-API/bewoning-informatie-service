@@ -1,14 +1,11 @@
 ﻿using AutoMapper;
-using Bewoning.Infrastructure.Http;
-using Bewoning.Infrastructure.ProblemJson;
-using Bewoning.Infrastructure.Stream;
-using BewoningProxy.Helpers;
-using BewoningProxy.Validators;
-using HaalCentraal.BewoningProxy.Generated;
-using Newtonsoft.Json;
+using Bewoning.Informatie.Service.Helpers;
+using Brp.Shared.Infrastructure.Http;
+using Brp.Shared.Infrastructure.Stream;
+using Brp.Shared.Infrastructure.Validatie;
 using Serilog;
 
-namespace BewoningProxy.Middlewares;
+namespace Bewoning.Informatie.Service.Middlewares;
 
 public class OverwriteResponseBodyMiddleware
 {
@@ -25,106 +22,44 @@ public class OverwriteResponseBodyMiddleware
         _diagnosticContext = diagnosticContext;
     }
 
-    private async Task<bool> RequestIsValid(HttpContext context, string requestBody, Stream orgBodyStream)
-    {
-        var problemJson = await context.MethodIsAllowed(orgBodyStream);
-        if (problemJson != null)
-        {
-            _diagnosticContext.Set("response.body", problemJson, true);
-
-            return false;
-        }
-        problemJson = await context.AcceptIsAllowed(orgBodyStream);
-        if (problemJson != null)
-        {
-            _diagnosticContext.Set("response.body", problemJson, true);
-
-            return false;
-        }
-        problemJson = await context.ContentTypeIsAllowed(orgBodyStream);
-        if (problemJson != null)
-        {
-            _diagnosticContext.Set("response.body", problemJson, true);
-
-            return false;
-        }
-
-        BewoningenQuery? bewoningenQuery;
-        try
-        {
-            bewoningenQuery = JsonConvert.DeserializeObject<BewoningenQuery>(requestBody);
-        }
-        catch (JsonSerializationException ex)
-        {
-            problemJson = await context.HandleJsonDeserializeException(ex, orgBodyStream);
-            _diagnosticContext.SetException(ex);
-            _diagnosticContext.Set("response.body", problemJson, true);
-
-            return false;
-        }
-        catch (JsonReaderException ex)
-        {
-            problemJson = await context.HandleJsonDeserializeException(ex, orgBodyStream);
-            _diagnosticContext.SetException(ex);
-            _diagnosticContext.Set("response.body", problemJson, true);
-
-            return false;
-        }
-
-        var validationResult = bewoningenQuery.Validate(requestBody);
-        if (!validationResult.IsValid)
-        {
-            problemJson = await context.HandleValidationErrors(validationResult, orgBodyStream);
-            _diagnosticContext.Set("response.body", problemJson, true);
-
-            return false;
-        }
-
-        return true;
-    }
-
     public async Task Invoke(HttpContext context)
     {
-        _logger.LogDebug("TimeZone: {@localTimeZone}. Now: {@now}", TimeZoneInfo.Local.StandardName, DateTime.Now);
-
         var orgBodyStream = context.Response.Body;
 
-        try
+        using var newBodyStream = new MemoryStream();
+        context.Response.Body = newBodyStream;
+
+        await _next(context);
+
+        if (!await context.HandleNotFound(orgBodyStream))
         {
-            var requestBody = await context.Request.ReadBodyAsync();
-            _diagnosticContext.Set("request.body", requestBody);
-            _diagnosticContext.Set("request.headers", context.Request.Headers);
-
-            if (!await RequestIsValid(context, requestBody, orgBodyStream))
-            {
-                return;
-            }
-
-            using var newBodyStream = new MemoryStream();
-            context.Response.Body = newBodyStream;
-
-            await _next(context);
-
-            var body = await context.Response.ReadBodyAsync();
-
-            _diagnosticContext.Set("api response.body", body);
-
-            var modifiedBody = context.Response.StatusCode == StatusCodes.Status200OK
-                ? body.Transform(_mapper, _logger)
-                : body;
-
-            _diagnosticContext.Set("response.body", modifiedBody);
-
-            using var bodyStream = modifiedBody.ToMemoryStream(context.Response.UseGzip());
-
-            context.Response.ContentLength = bodyStream.Length;
-            await bodyStream.CopyToAsync(orgBodyStream);
+            return;
         }
-        catch (Exception ex)
+        if (!await context.HandleServiceIsAvailable(orgBodyStream))
         {
-            var problemJson = await context.HandleUnhandledException(orgBodyStream);
-            _diagnosticContext.SetException(ex);
-            _diagnosticContext.Set("response.body", problemJson, true);
+            return;
         }
+
+        var body = await context.Response.ReadBodyAsync();
+
+        if (Log.IsEnabled(Serilog.Events.LogEventLevel.Debug))
+        {
+            _diagnosticContext.Set("original response headers", context.Response.Headers);
+            _diagnosticContext.Set("original response body", Newtonsoft.Json.Linq.JObject.Parse(body), true);
+        }
+
+        var modifiedBody = context.Response.StatusCode == StatusCodes.Status200OK
+            ? body.Transform(_mapper, _logger)
+            : body;
+
+        if (Log.IsEnabled(Serilog.Events.LogEventLevel.Debug))
+        {
+            _diagnosticContext.Set("modified response body", Newtonsoft.Json.Linq.JObject.Parse(modifiedBody), true);
+        }
+
+        using var bodyStream = modifiedBody.ToMemoryStream(context.Response.UseGzip());
+
+        context.Response.ContentLength = bodyStream.Length;
+        await bodyStream.CopyToAsync(orgBodyStream);
     }
 }

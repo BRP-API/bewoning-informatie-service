@@ -1,4 +1,4 @@
-﻿namespace HaalCentraal.BewoningService.Entities;
+﻿namespace Bewoning.Data.Mock.Entities;
 
 public class Verblijfplaats
 {

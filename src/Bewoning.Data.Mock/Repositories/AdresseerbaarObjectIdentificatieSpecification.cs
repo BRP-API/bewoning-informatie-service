@@ -1,7 +1,7 @@
-﻿using HaalCentraal.BewoningService.Entities;
+﻿using Bewoning.Data.Mock.Entities;
 using System.Linq.Expressions;
 
-namespace HaalCentraal.BewoningService.Repositories;
+namespace Bewoning.Data.Mock.Repositories;
 
 public class AdresseerbaarObjectIdentificatieSpecification : Specification<Persoon>
 {

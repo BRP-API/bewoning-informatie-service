@@ -1,6 +1,6 @@
-﻿using FluentAssertions;
-using HaalCentraal.BewoningService.Controllers;
-using HaalCentraal.BewoningService.Entities;
+﻿using Bewoning.Data.Mock.Controllers;
+using FluentAssertions;
+using Bewoning.Data.Mock.Entities;
 
 namespace Bewoning.Data.Mock.Tests;
 

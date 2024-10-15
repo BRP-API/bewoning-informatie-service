@@ -1,40 +1,29 @@
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using Bewoning.Infrastructure.Logging;
-using HaalCentraal.BewoningService.Repositories;
 using Serilog;
-using HaalCentraal.BewoningService.Validators;
-using Bewoning.Infrastructure.ProblemJson;
+using Bewoning.Data.Mock.Repositories;
+using Brp.Shared.Infrastructure.Logging;
+using Brp.Shared.Infrastructure.Utils;
 
-Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()
-    .CreateLogger();
+Log.Logger = SerilogHelpers.SetupSerilogBootstrapLogger();
 
 try
 {
-    Log.Information("Starting Bewoning Mock");
+    Log.Information("Starting {AppName} v{AppVersion}. TimeZone: {TimeZone}. Now: {TimeNow}",
+                    AssemblyHelpers.Name, AssemblyHelpers.Version, TimeZoneInfo.Local.StandardName, DateTime.Now);
 
     var builder = WebApplication.CreateBuilder(args);
 
-    builder.Logging.ClearProviders();
-    builder.Host.UseSerilog(SerilogHelpers.Configure(Log.Logger));
+    builder.Services.AddHttpContextAccessor();
 
-    // Add services to the container.
+    builder.SetupSerilog(Log.Logger);
 
     builder.Services.AddControllers()
-                    .ConfigureInvalidModelStateHandling()
                     .AddNewtonsoftJson();
-    builder.Services.AddFluentValidationAutoValidation(options => options.DisableDataAnnotationsValidation = true)
-                    .AddValidatorsFromAssemblyContaining<BewoningMetPeildatumValidator>();
 
-    builder.Services.AddScoped<PersoonRepository>();
+    _ = builder.Services.AddScoped<PersoonRepository>();
 
     var app = builder.Build();
 
-    // Configure the HTTP request pipeline.
-    app.UseSerilogRequestLogging();
-
-    app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
+    app.SetupSerilogRequestLogging();
 
     app.MapControllers();
 
@@ -42,7 +31,7 @@ try
 }
 catch (Exception ex)
 {
-    Log.Fatal(ex, "Bewoning Mock terminated unexpectedly");
+    Log.Fatal(ex, "{AppName} terminated unexpectedly", AssemblyHelpers.Name);
 }
 finally
 {
