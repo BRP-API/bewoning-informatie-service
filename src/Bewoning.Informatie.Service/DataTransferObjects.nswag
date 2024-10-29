@@ -1,9 +1,9 @@
 {
-  "runtime": "Net60",
+  "runtime": "Net80",
   "defaultVariables": null,
   "documentGenerator": {
     "fromDocument": {
-      "url": "../../specificatie/genereervariant/openapi.yaml",
+      "url": "../../specificatie/informatie-service/openapi.yaml",
       "output": null,
       "newLineBehavior": "Auto"
     }
@@ -55,7 +55,7 @@
       "wrapResponseMethods": [],
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
-      "namespace": "HaalCentraal.BewoningProxy.Generated",
+      "namespace": "Bewoning.Informatie.Service.Generated",
       "requiredPropertiesMustBeDefined": true,
       "dateType": "System.DateTimeOffset",
       "jsonConverters": null,
@@ -76,7 +76,9 @@
       "excludedTypeNames": [
         "Foutbericht",
         "InvalidParams",
-        "BadRequestFoutbericht"
+        "BadRequestFoutbericht",
+        "BewoningMetPeildatum",
+        "BewoningMetPeriode"
       ],
       "excludedParameterNames": [],
       "handleReferences": false,

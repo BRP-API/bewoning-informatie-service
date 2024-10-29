@@ -1,9 +1,9 @@
 {
-  "runtime": "Net60",
+  "runtime": "Net80",
   "defaultVariables": null,
   "documentGenerator": {
     "fromDocument": {
-      "url": "../../specificatie/gba-genereervariant/openapi.yaml",
+      "url": "../../specificatie/data-service/openapi.yaml",
       "output": null,
       "newLineBehavior": "Auto"
     }
@@ -55,7 +55,7 @@
       "wrapResponseMethods": [],
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
-      "namespace": "HaalCentraal.BewoningProxy.Generated.Gba",
+      "namespace": "Bewoning.Informatie.Service.Generated.Gba",
       "requiredPropertiesMustBeDefined": true,
       "dateType": "System.DateTimeOffset",
       "jsonConverters": null,
