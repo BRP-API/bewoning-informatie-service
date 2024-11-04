@@ -404,6 +404,12 @@ components:
           $ref: '#/components/schemas/GbaGeheimhoudingPersoonsgegevens'
         verblijfplaatsInOnderzoek:
           $ref: '#/components/schemas/GbaInOnderzoek'
+        persoonInOnderzoek:
+          $ref: '#/components/schemas/GbaInOnderzoek'
+        naam:
+          $ref: '#/components/schemas/GbaNaamPersoon'
+        geboorte:
+          $ref: '#/components/schemas/GbaGeboorte' 
     Burgerservicenummer:
       pattern: "^[0-9]{9}$"
       type: string
@@ -427,6 +433,73 @@ components:
       pattern: "^[0-9]{8}$"
       type: string
       example: "20180700"
+    GbaGeboorte:
+      allOf:
+        - $ref: '#/components/schemas/GbaGeboorteBeperkt'
+    GbaGeboorteBeperkt:
+      type: object
+      properties:
+        datum:
+          $ref: '#/components/schemas/GbaDatum'
+    Waardetabel:
+      type: object
+      properties:
+        code:
+          type: string
+          pattern: ^[a-zA-Z0-9 \.]+$
+          example: '6030'
+        omschrijving:
+          type: string
+          pattern: ^[a-zA-Z0-9À-ž \'\,\(\)\.\-]{1,200}$
+          example: Nederland
+    GbaNaamPersoon:
+      allOf:
+        - $ref: '#/components/schemas/GbaNaamBasis'
+    Voornamen:
+      type: string
+      pattern: ^[a-zA-Z0-9À-ž \.\-\']{1,200}$
+      maxLength: 200
+      description: |
+        De verzameling namen voor de geslachtsnaam, gescheiden door spaties.
+    AdellijkeTitelPredicaatSoort:
+      type: string
+      enum:
+        - titel
+        - predicaat
+    AdellijkeTitelPredicaatType:
+      description: |
+        Wordt gevuld met waarden uit de landelijke tabel 'Adellijke titel/predicaat'. De property soort geeft aan of het een 'predicaat' of een 'titel' is.
+      allOf:
+        - $ref: '#/components/schemas/Waardetabel'
+        - properties:
+            soort:
+              $ref: '#/components/schemas/AdellijkeTitelPredicaatSoort'
+          example:
+              code: JV
+              omschrijving: jonkvrouw
+              soort: predicaat
+    Voorvoegsel:
+      type: string
+      pattern: ^[a-zA-Z \']{1,10}$
+      maxLength: 10
+      example: de
+    Geslachtsnaam:
+      type: string
+      pattern: ^[a-zA-Z0-9À-ž \.\-\']{1,200}$
+      description: |
+        De achternaam van een persoon.
+      example: Vries
+    GbaNaamBasis:
+      type: object
+      properties:
+        voornamen:
+          $ref: '#/components/schemas/Voornamen'
+        adellijkeTitelPredicaat:
+          $ref: '#/components/schemas/AdellijkeTitelPredicaatType'
+        voorvoegsel:
+          $ref: '#/components/schemas/Voorvoegsel'
+        geslachtsnaam:
+          $ref: '#/components/schemas/Geslachtsnaam'
   responses:
     "400":
       description: Bad Request
