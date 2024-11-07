@@ -256,26 +256,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Bewoning'
-      example:
-        bewoningen:
-        - adresseerbaarObjectIdentificatie: "0599010370005001"
-          periode:
-            datumVan: 2023-11-19
-            datumTot: 2024-01-01
-          bewoners:
-          - burgerservicenummer: "999997968"
-            geheimhoudingPersoonsgegevens: true
-          - burgerservicenummer: "999990524"
-          mogelijkeBewoners: []
-        - adresseerbaarObjectIdentificatie: "0599010370005001"
-          periode:
-            datumVan: 2024-01-01
-            datumTot: 2024-01-27
-          bewoners:
-          - burgerservicenummer: "999997968"
-            geheimhoudingPersoonsgegevens: true
-          mogelijkeBewoners:
-          - burgerservicenummer: "999990524"
     BadRequestFoutbericht:
       allOf:
       - $ref: '#/components/schemas/Foutbericht'
@@ -416,6 +396,22 @@ components:
       description: |
         De verblijfplaats van de persoon kan een ligplaats, een standplaats of een verblijfsobject zijn.
       example: "0226010000038820"
+    NaamPersoon:
+      description: |
+        Gegevens over de naam van de persoon.
+      allOf:
+        - $ref: '#/components/schemas/NaamBasis'
+    NaamBasis:
+      type: object
+      properties:
+        volledigeNaam:
+          $ref: '#/components/schemas/VolledigeNaam'
+    VolledigeNaam:
+      type: string
+      pattern: ^[a-zA-Z0-9À-ž \.\-\']{1,450}$
+      description: |
+        Combinatie van predicaat, voornamen, adellijke titel, voorvoegsels en geslachtsnaam, zonder toevoeging van een eventuele partnernaam.
+      example: Pieter Jan de Vries
     Bewoner:
       type: object
       properties:
@@ -425,6 +421,14 @@ components:
           $ref: '#/components/schemas/GeheimhoudingPersoonsgegevens'
         inOnderzoek:
           $ref: '#/components/schemas/InOnderzoek'
+        leeftijd:
+          $ref: '#/components/schemas/Leeftijd'
+        naam:
+          $ref: '#/components/schemas/NaamPersoon'
+    InOnderzoek:
+      type: boolean
+      description: |
+        Geeft aan dat de verblijfplaats in onderzoek is.
     Burgerservicenummer:
       pattern: "^[0-9]{9}$"
       type: string
@@ -433,10 +437,13 @@ components:
       type: boolean
       description: |
         Gegevens mogen niet worden verstrekt aan derden / maatschappelijke instellingen.
-    InOnderzoek:
-      type: boolean
+    Leeftijd:
+      type: integer
       description: |
-        Geeft aan dat de verblijfplaats in onderzoek is.
+        Leeftijd in jaren op het moment van bevragen.
+      example: 34
+      minimum: 0
+      maximum: 150
   responses:
     "400":
       description: Bad Request
