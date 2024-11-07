@@ -461,19 +461,19 @@ components:
       maxLength: 200
       description: |
         De verzameling namen voor de geslachtsnaam, gescheiden door spaties.
-    AdellijkeTitelPredicaatSoort:
+    Soort:
       type: string
       enum:
         - titel
         - predicaat
-    AdellijkeTitelPredicaatType:
+    AdellijkeTitelPredicaat:
       description: |
         Wordt gevuld met waarden uit de landelijke tabel 'Adellijke titel/predicaat'. De property soort geeft aan of het een 'predicaat' of een 'titel' is.
       allOf:
         - $ref: '#/components/schemas/Waardetabel'
         - properties:
             soort:
-              $ref: '#/components/schemas/AdellijkeTitelPredicaatSoort'
+              $ref: '#/components/schemas/Soort'
           example:
               code: JV
               omschrijving: jonkvrouw
@@ -495,7 +495,7 @@ components:
         voornamen:
           $ref: '#/components/schemas/Voornamen'
         adellijkeTitelPredicaat:
-          $ref: '#/components/schemas/AdellijkeTitelPredicaatType'
+          $ref: '#/components/schemas/AdellijkeTitelPredicaat'
         voorvoegsel:
           $ref: '#/components/schemas/Voorvoegsel'
         geslachtsnaam:
