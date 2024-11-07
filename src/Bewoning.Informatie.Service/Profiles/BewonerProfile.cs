@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using HC = Bewoning.Informatie.Service.Generated;
 using Gba = Bewoning.Informatie.Service.Generated.Gba;
+using Bewoning.Informatie.Service.Mappers;
+using System.Text.RegularExpressions;
 
 namespace Bewoning.Informatie.Service.Profiles;
 
@@ -9,34 +11,14 @@ public class BewonerProfile : Profile
     public BewonerProfile()
     {
         CreateMap<Gba.GbaBewoner, HC.Bewoner>()
-            .ForMember(dest => dest.InOnderzoek, opt => 
+             .ForMember(dest => dest.Leeftijd, opt =>
+             {
+                 opt.MapFrom(src => src.Geboorte.Datum.Map().Leeftijd());
+             })
+            .AfterMap((src, dest) =>
             {
-                opt.PreCondition(src => src.VerblijfplaatsInOnderzoek != null);
-                opt.MapFrom(src => src.VerblijfplaatsInOnderzoek.AanduidingGegevensInOnderzoek.Map());
-            })
-            ;
-    }
-}
-
-public static class VerblijfplaatsInOnderzoekConverter
-{
-    public static bool Map(this string inOnderzoek)
-    {
-        return inOnderzoek switch
-        {
-            "080000" or
-            "081000" or
-            "081010" or
-            "081030" or
-            "081100" or
-            "081180" or
-            "580000" or
-            "581000" or
-            "581010" or
-            "581030" or
-            "581100" or
-            "581180" => true,
-            _ => false
-        };
+                if (src.Naam is null) return;
+                dest.Naam.VolledigeNaam = src.Naam.VolledigeNaam(src.Geslacht);
+            });
     }
 }
