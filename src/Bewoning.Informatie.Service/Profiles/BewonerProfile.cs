@@ -2,6 +2,7 @@
 using HC = Bewoning.Informatie.Service.Generated;
 using Gba = Bewoning.Informatie.Service.Generated.Gba;
 using Bewoning.Informatie.Service.Mappers;
+using Brp.Shared.DtoMappers.Mappers;
 
 namespace Bewoning.Informatie.Service.Profiles;
 
@@ -14,10 +15,6 @@ public class BewonerProfile : Profile
              {
                  opt.PreCondition(src => src.VerblijfplaatsInOnderzoek != null);
                  opt.MapFrom(src => src.VerblijfplaatsInOnderzoek.AanduidingGegevensInOnderzoek.MapInOnderzoek());
-             })
-            .ForMember(dest => dest.Leeftijd, opt =>
-             {
-                 opt.MapFrom(src => src.Geboorte.Datum.MapDatum().Leeftijd());
              })
             .AfterMap((src, dest) =>
             {

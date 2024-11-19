@@ -1,15 +1,14 @@
-﻿using Bewoning.Informatie.Service.Generated;
+﻿using Brp.Shared.DtoMappers.BrpApiDtos;
 using System.Globalization;
 using System.Text.RegularExpressions;
-using static Bewoning.Informatie.Service.Generated.AbstractDatum;
 
-namespace Bewoning.Informatie.Service.Mappers;
+namespace Brp.Shared.DtoMappers.Mappers;
 
-public static class GbaDatumMapper
+public static class DatumMapper
 {
     private static readonly Regex GbaDatumRegex = new("^(?<jaar>[0-9]{4})(?<maand>[0-9]{2})(?<dag>[0-9]{2})$", RegexOptions.None, TimeSpan.FromMilliseconds(100));
 
-    public static AbstractDatum MapDatum(this string datum)
+    public static AbstractDatum Map(this string datum)
     {
         if (GbaDatumRegex.IsMatch(datum))
         {
@@ -42,36 +41,6 @@ public static class GbaDatumMapper
         };
     }
 
-    public static int? Leeftijd(this AbstractDatum datum)
-    {
-        return datum switch
-        {
-            VolledigeDatum d => d.Datum!.Value.LocalDateTime.Leeftijd(DateTime.Today),
-            JaarMaandDatum d => d.Leeftijd(DateTime.Today),
-            _ => null
-        };
-    }
-
-    public static int Leeftijd(this DateTime datum, DateTime peildatum)
-    {
-        var leeftijd = peildatum.Year - datum.Year;
-
-        if(peildatum.Month < datum.Month ||
-            (peildatum.Month == datum.Month && peildatum.Day < datum.Day))
-        {
-            leeftijd--;
-        }
-
-        return leeftijd;
-    }
-
-    public static int? Leeftijd(this JaarMaandDatum datum, DateTime peildatum)
-    {
-        return datum.Maand != peildatum.Month
-            ? new DateTime(datum.Jaar, datum.Maand, 1).Leeftijd(peildatum)
-            : null;
-    }
-
     public static string? LangFormaat(this AbstractDatum datum)
     {
         var maand = new Dictionary<int, string>
@@ -93,11 +62,10 @@ public static class GbaDatumMapper
         return datum switch
         {
             VolledigeDatum d => $"{d.Datum!.Value.Day} {maand[d.Datum!.Value.Month]} {d.Datum!.Value.Year}",
-            JaarMaandDatum d => $"{maand[d.Maand]} {d.Jaar}",
+            JaarMaandDatum d => $"{maand[d.Maand!.Value]} {d.Jaar}",
             JaarDatum d => $"{d.Jaar}",
             DatumOnbekend => "onbekend",
             _ => null
         };
     }
-
 }
