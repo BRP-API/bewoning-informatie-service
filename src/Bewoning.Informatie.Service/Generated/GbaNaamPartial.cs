@@ -2,6 +2,6 @@
 
 namespace Bewoning.Informatie.Service.Generated.Gba;
 
-public partial class GbaNaamBasis : INaamBasis
+public partial class NaamBasis : INaamBasis
 {
 }

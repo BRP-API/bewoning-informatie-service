@@ -8,6 +8,6 @@ public class NaamProfile : Profile
 {
     public NaamProfile()
     {
-        CreateMap<Gba.GbaNaamBasis, HC.Naam>();
+        CreateMap<Gba.NaamBasis, HC.Naam>();
     }
 }

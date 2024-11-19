@@ -2,7 +2,7 @@
 
 public interface INaamBasis
 {
-    IAdellijkeTitelPredicaatType AdellijkeTitelPredicaat { get; }
+    BrpDtos.AdellijkeTitelPredicaatType AdellijkeTitelPredicaat { get; }
     string Voornamen { get; }
     string Voorvoegsel { get; }
     string Geslachtsnaam { get; }

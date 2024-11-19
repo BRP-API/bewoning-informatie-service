@@ -8,7 +8,7 @@ namespace Bewoning.Informatie.Service.Profiles
     {
         public GeboorteProfile()
         {
-            CreateMap<Gba.GbaGeboorte, HC.GeboorteBasis>()
+            CreateMap<Gba.GeboorteBasis, HC.GeboorteBasis>()
                 .ForMember(dest => dest.Datum, opt =>
                 {
                     opt.PreCondition(src => src.Datum != null);

@@ -20,7 +20,6 @@
 
 namespace Brp.Shared.DtoMappers.BrpDtos
 {
-    using Brp.Shared.DtoMappers.Interfaces;
     using System = global::System;
 
     
@@ -122,7 +121,7 @@ namespace Brp.Shared.DtoMappers.BrpDtos
         public string Voornamen { get; set; }
 
         [Newtonsoft.Json.JsonProperty("adellijkeTitelPredicaat", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public IAdellijkeTitelPredicaatType AdellijkeTitelPredicaat { get; set; }
+        public AdellijkeTitelPredicaatType AdellijkeTitelPredicaat { get; set; }
 
         [Newtonsoft.Json.JsonProperty("voorvoegsel", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(10)]

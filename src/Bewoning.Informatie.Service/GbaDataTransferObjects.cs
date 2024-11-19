@@ -4,6 +4,8 @@
 // </auto-generated>
 //----------------------
 
+using Brp.Shared.DtoMappers.BrpDtos;
+
 #pragma warning disable 108 // Disable "CS0108 '{derivedDto}.ToJson()' hides inherited member '{dtoBase}.ToJson()'. Use the new keyword if hiding was intended."
 #pragma warning disable 114 // Disable "CS0114 '{derivedDto}.RaisePropertyChanged(String)' hides inherited member 'dtoBase.RaisePropertyChanged(String)'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword."
 #pragma warning disable 472 // Disable "CS0472 The result of the expression is always 'false' since a value of type 'Int32' is never equal to 'null' of type 'Int32?'
@@ -20,7 +22,6 @@
 
 namespace Bewoning.Informatie.Service.Generated.Gba
 {
-    using Brp.Shared.DtoMappers.Interfaces;
     using System = global::System;
 
     
@@ -204,6 +205,12 @@ namespace Bewoning.Informatie.Service.Generated.Gba
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class Geslachtsaanduiding : Waardetabel
+    {
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public enum AdellijkeTitelPredicaatSoort
     {
 
@@ -215,27 +222,14 @@ namespace Bewoning.Informatie.Service.Generated.Gba
 
     }
 
-    /// <summary>
-    /// Wordt gevuld met waarden uit de landelijke tabel 'Adellijke titel/predicaat'. De property soort geeft aan of het een 'predicaat' of een 'titel' is.
-    /// <br/>
-    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class AdellijkeTitelPredicaatType : Waardetabel
-    {
-        [Newtonsoft.Json.JsonProperty("soort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public AdellijkeTitelPredicaatSoort? Soort { get; set; }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class GbaNaamBasis
+    public partial class NaamBasis
     {
         [Newtonsoft.Json.JsonProperty("voornamen", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Voornamen { get; set; }
 
         [Newtonsoft.Json.JsonProperty("adellijkeTitelPredicaat", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public IAdellijkeTitelPredicaatType AdellijkeTitelPredicaat { get; set; }
+        public AdellijkeTitelPredicaatType AdellijkeTitelPredicaat { get; set; }
 
         [Newtonsoft.Json.JsonProperty("voorvoegsel", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Voorvoegsel { get; set; }
@@ -255,12 +249,8 @@ namespace Bewoning.Informatie.Service.Generated.Gba
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class GbaGeboorte
+    public partial class GeboorteBasis
     {
-        /// <summary>
-        /// Datum waarop de persoon is geboren.
-        /// <br/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("datum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Datum { get; set; }
 
@@ -288,13 +278,13 @@ namespace Bewoning.Informatie.Service.Generated.Gba
         public GbaInOnderzoek VerblijfplaatsInOnderzoek { get; set; }
 
         [Newtonsoft.Json.JsonProperty("geslacht", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Waardetabel Geslacht { get; set; }
+        public Geslachtsaanduiding Geslacht { get; set; }
 
         [Newtonsoft.Json.JsonProperty("naam", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GbaNaamBasis Naam { get; set; }
+        public NaamBasis Naam { get; set; }
 
         [Newtonsoft.Json.JsonProperty("geboorte", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GbaGeboorte Geboorte { get; set; }
+        public GeboorteBasis Geboorte { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 

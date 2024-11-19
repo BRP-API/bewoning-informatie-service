@@ -194,6 +194,12 @@ namespace Bewoning.Data.Mock.Generated
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class Geslachtsaanduiding : Waardetabel
+    {
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public enum AdellijkeTitelPredicaatSoort
     {
 
@@ -219,7 +225,7 @@ namespace Bewoning.Data.Mock.Generated
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class GbaNaamBasis
+    public partial class NaamBasis
     {
         [Newtonsoft.Json.JsonProperty("voornamen", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Voornamen { get; set; }
@@ -245,12 +251,8 @@ namespace Bewoning.Data.Mock.Generated
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class GbaGeboorte
+    public partial class GeboorteBasis
     {
-        /// <summary>
-        /// Datum waarop de persoon is geboren.
-        /// <br/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("datum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Datum { get; set; }
 
@@ -278,13 +280,13 @@ namespace Bewoning.Data.Mock.Generated
         public GbaInOnderzoek VerblijfplaatsInOnderzoek { get; set; }
 
         [Newtonsoft.Json.JsonProperty("geslacht", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Waardetabel Geslacht { get; set; }
+        public Geslachtsaanduiding Geslacht { get; set; }
 
         [Newtonsoft.Json.JsonProperty("naam", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GbaNaamBasis Naam { get; set; }
+        public NaamBasis Naam { get; set; }
 
         [Newtonsoft.Json.JsonProperty("geboorte", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GbaGeboorte Geboorte { get; set; }
+        public GeboorteBasis Geboorte { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
