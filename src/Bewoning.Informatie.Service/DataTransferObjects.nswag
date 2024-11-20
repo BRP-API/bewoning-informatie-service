@@ -20,7 +20,7 @@
       "injectHttpClient": true,
       "disposeHttpClient": true,
       "protectedMethods": [],
-      "generateExceptionClasses": true,
+      "generateExceptionClasses": false,
       "exceptionClass": "ApiException",
       "wrapDtoExceptions": true,
       "useHttpClientCreationMethod": false,
@@ -81,7 +81,7 @@
       "generateDataAnnotations": false,
       "excludedTypeNames": [
         "Foutbericht",
-        "InvalidParams",
+        "InvalidParam",
         "BadRequestFoutbericht",
         "BewoningMetPeildatum",
         "BewoningMetPeriode",

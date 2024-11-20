@@ -52,6 +52,9 @@
       "generateDefaultValues": true,
       "generateDataAnnotations": false,
       "excludedTypeNames": [
+        "Foutbericht",
+        "InvalidParam",
+        "BadRequestFoutbericht",
         "BewoningMetPeildatum",
         "BewoningMetPeriode"
       ],
@@ -68,9 +71,6 @@
       "generateOptionalPropertiesAsNullable": true,
       "generateNullableReferenceTypes": false,
       "templateDirectory": null,
-      "typeNameGeneratorType": null,
-      "propertyNameGeneratorType": null,
-      "enumNameGeneratorType": null,
       "serviceHost": null,
       "serviceSchemes": null,
       "output": "Generated/Generated.cs",
