@@ -3,7 +3,7 @@
   "defaultVariables": null,
   "documentGenerator": {
     "fromDocument": {
-      "url": "../../specificatie/data-service/openapi.yaml",
+      "url": "../../specificatie/referentie-informatie-api/resolved/openapi.yaml",
       "output": null,
       "newLineBehavior": "Auto"
     }
@@ -46,9 +46,7 @@
       "queryNullValue": "",
       "className": "{controller}Client",
       "operationGenerationMode": "MultipleClientsFromOperationId",
-      "additionalNamespaceUsages": [
-        "Brp.Shared.DtoMappers.BrpDtos"
-      ],
+      "additionalNamespaceUsages": [],
       "additionalContractNamespaceUsages": [],
       "generateOptionalParameters": false,
       "generateJsonMethods": false,
@@ -61,7 +59,7 @@
       "wrapResponseMethods": [],
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
-      "namespace": "Bewoning.Informatie.Service.Generated.Gba",
+      "namespace": "Brp.Shared.DtoMappers.BrpApiDtos",
       "requiredPropertiesMustBeDefined": true,
       "dateType": "System.DateTimeOffset",
       "jsonConverters": null,
@@ -79,12 +77,7 @@
       "jsonLibrary": "NewtonsoftJson",
       "generateDefaultValues": true,
       "generateDataAnnotations": false,
-      "excludedTypeNames": [
-        "Foutbericht",
-        "InvalidParam",
-        "BadRequestFoutbericht",
-        "AdellijkeTitelPredicaatType"
-      ],
+      "excludedTypeNames": [],
       "excludedParameterNames": [],
       "handleReferences": false,
       "generateImmutableArrayProperties": false,
@@ -100,7 +93,7 @@
       "templateDirectory": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": "GbaDataTransferObjects.cs",
+      "output": "BrpApiDtos/GeneratedDataTransferObjects.cs",
       "newLineBehavior": "Auto"
     }
   }

@@ -1,9 +1,9 @@
 {
-  "runtime": "Net80",
+  "runtime": "Net60",
   "defaultVariables": null,
   "documentGenerator": {
     "fromDocument": {
-      "url": "../../specificatie/data-service/openapi.yaml",
+      "url": "../../specificatie/referentie-data-api/resolved/openapi.yaml",
       "output": null,
       "newLineBehavior": "Auto"
     }
@@ -46,9 +46,7 @@
       "queryNullValue": "",
       "className": "{controller}Client",
       "operationGenerationMode": "MultipleClientsFromOperationId",
-      "additionalNamespaceUsages": [
-        "Brp.Shared.DtoMappers.BrpDtos"
-      ],
+      "additionalNamespaceUsages": [],
       "additionalContractNamespaceUsages": [],
       "generateOptionalParameters": false,
       "generateJsonMethods": false,
@@ -61,7 +59,7 @@
       "wrapResponseMethods": [],
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
-      "namespace": "Bewoning.Informatie.Service.Generated.Gba",
+      "namespace": "Brp.Shared.DtoMappers.BrpDtos",
       "requiredPropertiesMustBeDefined": true,
       "dateType": "System.DateTimeOffset",
       "jsonConverters": null,
@@ -78,13 +76,8 @@
       "classStyle": "Poco",
       "jsonLibrary": "NewtonsoftJson",
       "generateDefaultValues": true,
-      "generateDataAnnotations": false,
-      "excludedTypeNames": [
-        "Foutbericht",
-        "InvalidParam",
-        "BadRequestFoutbericht",
-        "AdellijkeTitelPredicaatType"
-      ],
+      "generateDataAnnotations": true,
+      "excludedTypeNames": [],
       "excludedParameterNames": [],
       "handleReferences": false,
       "generateImmutableArrayProperties": false,
@@ -95,12 +88,12 @@
       "inlineNamedTuples": true,
       "inlineNamedAny": false,
       "generateDtoTypes": true,
-      "generateOptionalPropertiesAsNullable": true,
+      "generateOptionalPropertiesAsNullable": false,
       "generateNullableReferenceTypes": false,
       "templateDirectory": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": "GbaDataTransferObjects.cs",
+      "output": "BrpDtos/GeneratedDataTransferObjects.cs",
       "newLineBehavior": "Auto"
     }
   }
