@@ -7,6 +7,21 @@ namespace Brp.Shared.DtoMappers.Mappers;
 public static class DatumMapper
 {
     private static readonly Regex GbaDatumRegex = new("^(?<jaar>[0-9]{4})(?<maand>[0-9]{2})(?<dag>[0-9]{2})$", RegexOptions.None, TimeSpan.FromMilliseconds(100));
+    private static readonly Dictionary<int, string> MaandDictionary = new ()
+    {
+        {1, "januari" },
+        {2, "februari" },
+        {3, "maart" },
+        {4, "april" },
+        {5, "mei" },
+        {6, "juni" },
+        {7, "juli" },
+        {8, "augustus" },
+        {9, "september" },
+        {10, "oktober" },
+        {11, "november" },
+        {12, "december" }
+    };
 
     public static AbstractDatum Map(this string datum)
     {
@@ -20,52 +35,37 @@ public static class DatumMapper
             AbstractDatum retval = new DatumOnbekend();
             if (jaar != 0 && maand != 0 && dag != 0)
             {
-                retval = new VolledigeDatum() { Datum = new DateTime(jaar, maand, dag) };
+                retval = new VolledigeDatum()
+                {
+                    Datum = new DateTime(jaar, maand, dag, 0, 0, 0, DateTimeKind.Local),
+                    LangFormaat = $"{dag} {MaandDictionary[maand]} {jaar}"
+                };
             }
             if (jaar != 0 && maand != 0 && dag == 0)
             {
-                retval = new JaarMaandDatum() { Jaar = jaar, Maand = maand };
+                retval = new JaarMaandDatum()
+                {
+                    Jaar = jaar,
+                    Maand = maand,
+                    LangFormaat = $"{MaandDictionary[maand]} {jaar}"
+                };
             }
             if (jaar != 0 && maand == 0 && dag == 0)
             {
-                retval = new JaarDatum { Jaar = jaar };
+                retval = new JaarDatum
+                {
+                    Jaar = jaar,
+                    LangFormaat = $"{jaar}"
+                };
             }
 
-            retval.LangFormaat = retval.LangFormaat();
             return retval;
 
         }
+
         return new DatumOnbekend
         {
             LangFormaat = "onbekend"
-        };
-    }
-
-    public static string? LangFormaat(this AbstractDatum datum)
-    {
-        var maand = new Dictionary<int, string>
-        {
-            {1, "januari" },
-            {2, "februari" },
-            {3, "maart" },
-            {4, "april" },
-            {5, "mei" },
-            {6, "juni" },
-            {7, "juli" },
-            {8, "augustus" },
-            {9, "september" },
-            {10, "oktober" },
-            {11, "november" },
-            {12, "december" }
-        };
-
-        return datum switch
-        {
-            VolledigeDatum d => $"{d.Datum!.Value.Day} {maand[d.Datum!.Value.Month]} {d.Datum!.Value.Year}",
-            JaarMaandDatum d => $"{maand[d.Maand!.Value]} {d.Jaar}",
-            JaarDatum d => $"{d.Jaar}",
-            DatumOnbekend => "onbekend",
-            _ => null
         };
     }
 }
