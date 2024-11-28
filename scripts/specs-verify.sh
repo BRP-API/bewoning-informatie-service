@@ -18,7 +18,7 @@ npx cucumber-js -f json:./test-reports/cucumber-js/step-definitions/test-result-
 npx cucumber-js -f json:./test-reports/cucumber-js/bewoning/test-result.json \
                 -f summary:./test-reports/cucumber-js/bewoning/test-result-summary.txt \
                 -f summary \
-                features/raadpleeg-bewoning-met-periode \
-                features/raadpleeg-bewoning-op-peildatum \
+                features \
+                --tags "not @stap-documentatie" \
                 --tags "not @skip-verify" \
                 --world-parameters "$PARAMS"
