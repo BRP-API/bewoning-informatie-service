@@ -90,7 +90,8 @@
         "DatumOnbekend",
         "JaarDatum",
         "JaarMaandDatum",
-        "AdellijkeTitelPredicaatType"
+        "AdellijkeTitelPredicaatType",
+        "GeboorteBasis"
       ],
       "excludedParameterNames": [],
       "handleReferences": false,
