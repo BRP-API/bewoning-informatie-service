@@ -83,7 +83,8 @@
         "Foutbericht",
         "InvalidParam",
         "BadRequestFoutbericht",
-        "AdellijkeTitelPredicaatType"
+        "AdellijkeTitelPredicaatType",
+        "GeboorteBasis"
       ],
       "excludedParameterNames": [],
       "handleReferences": false,
