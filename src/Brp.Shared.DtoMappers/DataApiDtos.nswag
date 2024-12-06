@@ -1,5 +1,5 @@
 {
-  "runtime": "Net60",
+  "runtime": "Net80",
   "defaultVariables": null,
   "documentGenerator": {
     "fromDocument": {
@@ -76,19 +76,25 @@
       "classStyle": "Poco",
       "jsonLibrary": "NewtonsoftJson",
       "generateDefaultValues": true,
-      "generateDataAnnotations": true,
-      "excludedTypeNames": [],
+      "generateDataAnnotations": false,
+      "excludedTypeNames": [
+        "DataApiRequest",
+        "DataApiResponse",
+        "Foutbericht",
+        "InvalidParam",
+        "BadRequestFoutbericht"
+      ],
       "excludedParameterNames": [],
       "handleReferences": false,
       "generateImmutableArrayProperties": false,
       "generateImmutableDictionaryProperties": false,
       "jsonSerializerSettingsTransformationMethod": null,
-      "inlineNamedArrays": false,
+      "inlineNamedArrays": true,
       "inlineNamedDictionaries": false,
       "inlineNamedTuples": true,
       "inlineNamedAny": false,
       "generateDtoTypes": true,
-      "generateOptionalPropertiesAsNullable": false,
+      "generateOptionalPropertiesAsNullable": true,
       "generateNullableReferenceTypes": false,
       "templateDirectory": null,
       "serviceHost": null,
