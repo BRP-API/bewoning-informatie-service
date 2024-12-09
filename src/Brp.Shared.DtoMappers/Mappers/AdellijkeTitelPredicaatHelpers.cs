@@ -1,5 +1,4 @@
 ﻿using Brp.Shared.DtoMappers.Interfaces;
-using System.Reflection;
 
 namespace Brp.Shared.DtoMappers.Mappers;
 
@@ -35,11 +34,11 @@ public static class AdellijkeTitelPredicaatHelpers
         { "R", RIDDER }
     };
 
-    public static string MapNaarAdellijkeTitel(this IWaardetabel waardetabel, IWaardetabel? geslacht)
+    public static string MapNaarAdellijkeTitel(this IAdellijkeTitelPredicaatType adellijkeTitel, IWaardetabel? geslacht)
     {
-        if (waardetabel == null) return string.Empty;
+        if (adellijkeTitel == null) return string.Empty;
 
-        return waardetabel.Code switch
+        return adellijkeTitel.Code switch
         {
             "B" => AdellijkeTitels[geslacht.IsVrouw() ? "BS" : "B"],
             "BS" => AdellijkeTitels[geslacht.IsMan() ? "B" : "BS"],
@@ -56,11 +55,11 @@ public static class AdellijkeTitelPredicaatHelpers
         };
     }
 
-    public static string MapNaarPredicaat(this IWaardetabel waardetabel, IWaardetabel? geslacht)
+    public static string MapNaarPredicaat(this IAdellijkeTitelPredicaatType predicaat, IWaardetabel? geslacht)
     {
-        if (waardetabel == null) return string.Empty;
+        if (predicaat == null) return string.Empty;
 
-        return waardetabel.Code switch
+        return predicaat.Code switch
         {
             "JH" => geslacht.IsVrouw() ? JONKVROUW : JONKHEER,
             "JV" => geslacht.IsMan() ? JONKHEER : JONKVROUW,

@@ -25,6 +25,12 @@ public static class DatumMapper
 
     public static AbstractDatum Map(this string datum)
     {
+        AbstractDatum retval = new DatumOnbekend
+        {
+            Onbekend = true,
+            LangFormaat = "onbekend"
+        };
+
         if (GbaDatumRegex.IsMatch(datum))
         {
             var match = GbaDatumRegex.Match(datum);
@@ -32,7 +38,6 @@ public static class DatumMapper
             var maand = int.Parse(match.Groups["maand"].Value, CultureInfo.InvariantCulture);
             var dag = int.Parse(match.Groups["dag"].Value, CultureInfo.InvariantCulture);
 
-            AbstractDatum retval = new DatumOnbekend();
             if (jaar != 0 && maand != 0 && dag != 0)
             {
                 retval = new VolledigeDatum()
@@ -58,14 +63,8 @@ public static class DatumMapper
                     LangFormaat = $"{jaar}"
                 };
             }
-
-            return retval;
-
         }
 
-        return new DatumOnbekend
-        {
-            LangFormaat = "onbekend"
-        };
+        return retval;
     }
 }
