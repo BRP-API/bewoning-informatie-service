@@ -7,7 +7,7 @@ public partial class AbstractDatum
         return datum switch
         {
             VolledigeDatum v => v.Datum!.Value.DateTime,
-            JaarDatum v => new DateTime(v.Jaar!.Value, 1, 1, 0, 0, 0,  DateTimeKind.Local).AddYears(1),
+            JaarDatum v => new DateTime(v.Jaar!.Value, 1, 1, 0, 0, 0, DateTimeKind.Local).AddYears(1),
             JaarMaandDatum v => new DateTime(v.Jaar!.Value, v.Maand!.Value, 1, 0, 0, 0, DateTimeKind.Local).AddMonths(1),
             _ => null
         };
