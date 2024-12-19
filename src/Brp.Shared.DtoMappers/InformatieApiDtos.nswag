@@ -86,8 +86,7 @@
         "InvalidParam",
         "BadRequestFoutbericht",
         "Geslachtsaanduiding",
-        "Waardetabel",
-        "AbstractGezagsrelatie"
+        "Waardetabel"
       ],
       "excludedParameterNames": [],
       "handleReferences": false,
