@@ -17,6 +17,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bewoning.Informatie.Service\Bewoning.Informatie.Service.csproj" />
     <ProjectReference Include="..\Brp.Shared.Infrastructure\Brp.Shared.Infrastructure.csproj" />
   </ItemGroup>
 </Project>
