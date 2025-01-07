@@ -2,6 +2,7 @@ using Serilog;
 using Bewoning.Data.Mock.Repositories;
 using Brp.Shared.Infrastructure.Logging;
 using Brp.Shared.Infrastructure.Utils;
+using Bewoning.Informatie.Service.Middlewares;
 
 Log.Logger = SerilogHelpers.SetupSerilogBootstrapLogger();
 
@@ -16,6 +17,9 @@ try
 
     builder.SetupSerilog(Log.Logger);
 
+    Brp.Shared.DtoMappers.SetupHelpers.AddBrpSharedDtoMappers();
+    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
     builder.Services.AddControllers()
                     .AddNewtonsoftJson();
 
@@ -25,9 +29,11 @@ try
 
     app.SetupSerilogRequestLogging();
 
+    app.UseMiddleware<OverwriteResponseBodyMiddleware>();
+
     app.MapControllers();
 
-    app.Run();
+    await app.RunAsync();
 }
 catch (Exception ex)
 {
@@ -35,5 +41,5 @@ catch (Exception ex)
 }
 finally
 {
-    Log.CloseAndFlush();
+    await Log.CloseAndFlushAsync();
 }

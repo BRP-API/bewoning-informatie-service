@@ -140,18 +140,14 @@ public static class AdreshoudingToBewoningLogic
 
             foreach (var persoon in personen)
             {
+                var bewoner = persoon.Map();
+
                 var bewoningen = from bewoning in retval
                                  where persoon.Verblijfplaats!.IsBewoner(bewoning.Periode)
                                  select bewoning;
 
                 foreach (var bewoning in bewoningen)
                 {
-                    var bewoner = new GbaBewoner
-                    {
-                        Burgerservicenummer = persoon!.BurgerserviceNummer,
-                        GeheimhoudingPersoonsgegevens = persoon!.GeheimhoudingPersoonsgegevens.GetValueOrDefault(0)
-                    };
-
                     bewoning.Bewoners.Add(bewoner);
                 }
 
@@ -161,17 +157,52 @@ public static class AdreshoudingToBewoningLogic
 
                 foreach (var bewoning in bewoningen)
                 {
-                    var bewoner = new GbaBewoner
-                    {
-                        Burgerservicenummer = persoon!.BurgerserviceNummer,
-                        GeheimhoudingPersoonsgegevens = persoon!.GeheimhoudingPersoonsgegevens.GetValueOrDefault(0)
-                    };
-
                     bewoning.MogelijkeBewoners.Add(bewoner);
                 }
             }
         }
 
         return retval;
+    }
+
+    private static GbaBewoner Map(this Persoon persoon)
+    {
+        return new GbaBewoner
+        {
+            Burgerservicenummer = persoon.BurgerserviceNummer,
+            GeheimhoudingPersoonsgegevens = persoon.MapGeheimhouding(),
+            Naam = persoon.Naam.Map(),
+            Geboorte = persoon.Geboorte.Map()
+        };
+    }
+
+    private static NaamBasis? Map(this Naam? naam)
+    {
+        return naam != null
+            ? new NaamBasis
+                {
+                    Voornamen = naam.Voornamen,
+                    Voorvoegsel = naam.Voorvoegsel,
+                    Geslachtsnaam = naam.Geslachtsnaam,
+                    AdellijkeTitelPredicaat = naam.AdellijkeTitelPredicaat
+                }
+            : null;
+    }
+
+    private static GeboorteBasis? Map(this Geboorte? geboorte)
+    {
+        return geboorte != null
+            ? new GeboorteBasis
+                {
+                    Datum = geboorte.Datum
+                }
+            : null;
+    }
+
+    private static int? MapGeheimhouding(this Persoon persoon)
+    {
+        return persoon.GeheimhoudingPersoonsgegevens.GetValueOrDefault(0) > 0
+            ? persoon.GeheimhoudingPersoonsgegevens.GetValueOrDefault(0)
+            : null;
     }
 }
