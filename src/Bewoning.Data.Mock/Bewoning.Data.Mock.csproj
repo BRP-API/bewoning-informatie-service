@@ -8,15 +8,16 @@
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
     <AssemblyName>Bewoning.Data.Mock</AssemblyName>
     <RootNamespace>Bewoning.Data.Mock</RootNamespace>
-    <Version>2.0.1</Version>
+    <Version>2.1.1</Version>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.35" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.36" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bewoning.Informatie.Service\Bewoning.Informatie.Service.csproj" />
     <ProjectReference Include="..\Brp.Shared.Infrastructure\Brp.Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\Brp.Shared.Validatie\Brp.Shared.Validatie.csproj" />
   </ItemGroup>
 </Project>

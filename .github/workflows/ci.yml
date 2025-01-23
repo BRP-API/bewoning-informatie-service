@@ -26,7 +26,7 @@ env:
   APP_CONTAINER_IMAGE: ghcr.io/brp-api/bewoning-informatie-service
   MOCK_PROJECT_PATH: ./src/Bewoning.Data.Mock
   MOCK_CSPROJ_FILE_PATH: ./src/Bewoning.Data.Mock/Bewoning.Data.Mock.csproj
-  MOCK_CONTAINER_IMAGE: ghcr.io/brp-api/bewoning-service-mock
+  MOCK_CONTAINER_IMAGE: ghcr.io/brp-api/bewoning-mock
 
 jobs:
   continuous-integration:
