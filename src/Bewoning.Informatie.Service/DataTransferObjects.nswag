@@ -47,6 +47,7 @@
       "className": "{controller}Client",
       "operationGenerationMode": "MultipleClientsFromOperationId",
       "additionalNamespaceUsages": [
+        "Brp.Shared.DtoMappers.CommonDtos",
         "Brp.Shared.DtoMappers.BrpApiDtos"
       ],
       "additionalContractNamespaceUsages": [],
