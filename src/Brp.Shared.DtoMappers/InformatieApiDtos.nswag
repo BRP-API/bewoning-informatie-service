@@ -46,7 +46,9 @@
       "queryNullValue": "",
       "className": "{controller}Client",
       "operationGenerationMode": "MultipleClientsFromOperationId",
-      "additionalNamespaceUsages": [],
+      "additionalNamespaceUsages": [
+        "Brp.Shared.DtoMappers.CommonDtos"
+      ],
       "additionalContractNamespaceUsages": [],
       "generateOptionalParameters": false,
       "generateJsonMethods": false,
@@ -86,7 +88,11 @@
         "InvalidParam",
         "BadRequestFoutbericht",
         "Geslachtsaanduiding",
-        "Waardetabel"
+        "Waardetabel",
+        "AdellijkeTitelPredicaatSoort",
+        "AdellijkeTitelPredicaatType",
+        "Geslachtsaanduiding",
+        "NaamBasis"
       ],
       "excludedParameterNames": [],
       "handleReferences": false,
