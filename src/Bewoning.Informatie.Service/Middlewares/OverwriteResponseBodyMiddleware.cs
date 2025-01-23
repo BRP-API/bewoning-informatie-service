@@ -2,7 +2,7 @@
 using Bewoning.Informatie.Service.Helpers;
 using Brp.Shared.Infrastructure.Http;
 using Brp.Shared.Infrastructure.Stream;
-using Brp.Shared.Infrastructure.Validatie;
+using Brp.Shared.Validatie.Handlers;
 using Serilog;
 
 namespace Bewoning.Informatie.Service.Middlewares;
