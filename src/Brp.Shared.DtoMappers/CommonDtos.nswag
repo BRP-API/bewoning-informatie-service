@@ -3,7 +3,7 @@
   "defaultVariables": null,
   "documentGenerator": {
     "fromDocument": {
-      "url": "../../specificatie/referentie-informatie-api/resolved/openapi.yaml",
+      "url": "../../specificatie/referentie-data-api/resolved/openapi.yaml",
       "output": null,
       "newLineBehavior": "Auto"
     }
@@ -46,9 +46,7 @@
       "queryNullValue": "",
       "className": "{controller}Client",
       "operationGenerationMode": "MultipleClientsFromOperationId",
-      "additionalNamespaceUsages": [
-        "Brp.Shared.DtoMappers.CommonDtos"
-      ],
+      "additionalNamespaceUsages": [],
       "additionalContractNamespaceUsages": [],
       "generateOptionalParameters": false,
       "generateJsonMethods": false,
@@ -61,7 +59,7 @@
       "wrapResponseMethods": [],
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
-      "namespace": "Brp.Shared.DtoMappers.BrpApiDtos",
+      "namespace": "Brp.Shared.DtoMappers.CommonDtos",
       "requiredPropertiesMustBeDefined": true,
       "dateType": "System.DateTimeOffset",
       "jsonConverters": null,
@@ -80,19 +78,23 @@
       "generateDefaultValues": true,
       "generateDataAnnotations": false,
       "excludedTypeNames": [
-        "InformatieApiRequest",
-        "InformatieApiResponse",
-        "DatumsResponse",
-        "GeboorteResponse",
+        "DataApiRequest",
+        "DataApiResponse",
         "Foutbericht",
         "InvalidParam",
         "BadRequestFoutbericht",
-        "Geslachtsaanduiding",
-        "Waardetabel",
-        "AdellijkeTitelPredicaatSoort",
-        "AdellijkeTitelPredicaatType",
-        "Geslachtsaanduiding",
-        "NaamBasis"
+        "GeboorteBasis",
+        "Meerderjarige",
+        "GezagOuder",
+        "AbstractGezagsrelatie",
+        "TweehoofdigOuderlijkGezag",
+        "EenhoofdigOuderlijkGezag",
+        "GezamenlijkGezag",
+        "Voogdij",
+        "TijdelijkGeenGezag",
+        "GezagNietTeBepalen",
+        "Minderjarige",
+        "InOnderzoek"
       ],
       "excludedParameterNames": [],
       "handleReferences": false,
@@ -109,7 +111,7 @@
       "templateDirectory": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": "BrpApiDtos/GeneratedDataTransferObjects.cs",
+      "output": "CommonDtos/GeneratedDataTransferObjects.cs",
       "newLineBehavior": "Auto"
     }
   }

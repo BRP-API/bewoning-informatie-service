@@ -4,6 +4,8 @@
 // </auto-generated>
 //----------------------
 
+using Brp.Shared.DtoMappers.CommonDtos;
+
 #pragma warning disable 108 // Disable "CS0108 '{derivedDto}.ToJson()' hides inherited member '{dtoBase}.ToJson()'. Use the new keyword if hiding was intended."
 #pragma warning disable 114 // Disable "CS0114 '{derivedDto}.RaisePropertyChanged(String)' hides inherited member 'dtoBase.RaisePropertyChanged(String)'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword."
 #pragma warning disable 472 // Disable "CS0472 The result of the expression is always 'false' since a value of type 'Int32' is never equal to 'null' of type 'Int32?'
@@ -45,14 +47,18 @@ namespace Brp.Shared.DtoMappers.BrpDtos
 
     }
 
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "type")]
+    [JsonInheritanceAttribute("TweehoofdigOuderlijkGezag", typeof(TweehoofdigOuderlijkGezag))]
+    [JsonInheritanceAttribute("EenhoofdigOuderlijkGezag", typeof(EenhoofdigOuderlijkGezag))]
+    [JsonInheritanceAttribute("GezamenlijkGezag", typeof(GezamenlijkGezag))]
+    [JsonInheritanceAttribute("Voogdij", typeof(Voogdij))]
+    [JsonInheritanceAttribute("TijdelijkGeenGezag", typeof(TijdelijkGeenGezag))]
+    [JsonInheritanceAttribute("GezagNietTeBepalen", typeof(GezagNietTeBepalen))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Waardetabel
+    public partial class AbstractGezagsrelatie
     {
-        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Code { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("omschrijving", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Omschrijving { get; set; }
+        [Newtonsoft.Json.JsonProperty("minderjarige", Required = Newtonsoft.Json.Required.Always)]
+        public Minderjarige Minderjarige { get; set; } = new Minderjarige();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
 
@@ -66,8 +72,125 @@ namespace Brp.Shared.DtoMappers.BrpDtos
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Geslachtsaanduiding : Waardetabel
+    public partial class GezagOuder
     {
+        [Newtonsoft.Json.JsonProperty("burgerservicenummer", Required = Newtonsoft.Json.Required.Always)]
+        public string Burgerservicenummer { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("naam", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public NaamBasis Naam { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("geslacht", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Geslachtsaanduiding Geslacht { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TweehoofdigOuderlijkGezag : AbstractGezagsrelatie
+    {
+        [Newtonsoft.Json.JsonProperty("ouders", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<GezagOuder> Ouders { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class EenhoofdigOuderlijkGezag : AbstractGezagsrelatie
+    {
+        [Newtonsoft.Json.JsonProperty("ouder", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public GezagOuder Ouder { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class Meerderjarige
+    {
+        [Newtonsoft.Json.JsonProperty("burgerservicenummer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Burgerservicenummer { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("naam", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public NaamBasis Naam { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("geslacht", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Geslachtsaanduiding Geslacht { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class GezamenlijkGezag : AbstractGezagsrelatie
+    {
+        [Newtonsoft.Json.JsonProperty("ouder", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public GezagOuder Ouder { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("derde", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Meerderjarige Derde { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class Voogdij : AbstractGezagsrelatie
+    {
+        [Newtonsoft.Json.JsonProperty("derden", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Meerderjarige> Derden { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TijdelijkGeenGezag : AbstractGezagsrelatie
+    {
+        [Newtonsoft.Json.JsonProperty("toelichting", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Toelichting { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class GezagNietTeBepalen : AbstractGezagsrelatie
+    {
+        [Newtonsoft.Json.JsonProperty("toelichting", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Toelichting { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class Minderjarige
+    {
+        [Newtonsoft.Json.JsonProperty("burgerservicenummer", Required = Newtonsoft.Json.Required.Always)]
+        public string Burgerservicenummer { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("naam", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public NaamBasis Naam { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("geslacht", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Geslachtsaanduiding Geslacht { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("geboorte", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public GeboorteBasis Geboorte { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
 
     }
 
@@ -92,54 +215,140 @@ namespace Brp.Shared.DtoMappers.BrpDtos
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public enum AdellijkeTitelPredicaatSoort
+    [System.AttributeUsage(System.AttributeTargets.Class | System.AttributeTargets.Interface, AllowMultiple = true)]
+    internal class JsonInheritanceAttribute : System.Attribute
     {
-
-        [System.Runtime.Serialization.EnumMember(Value = @"titel")]
-        Titel = 0,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"predicaat")]
-        Predicaat = 1,
-
-    }
-
-    /// <summary>
-    /// Wordt gevuld met waarden uit de landelijke tabel 'Adellijke titel/predicaat'. De property soort geeft aan of het een 'predicaat' of een 'titel' is.
-    /// <br/>
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class AdellijkeTitelPredicaatType : Waardetabel
-    {
-        [Newtonsoft.Json.JsonProperty("soort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public AdellijkeTitelPredicaatSoort? Soort { get; set; }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NaamBasis
-    {
-        [Newtonsoft.Json.JsonProperty("voornamen", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Voornamen { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("adellijkeTitelPredicaat", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AdellijkeTitelPredicaatType AdellijkeTitelPredicaat { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("voorvoegsel", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Voorvoegsel { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("geslachtsnaam", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Geslachtsnaam { get; set; }
-
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
-
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        public JsonInheritanceAttribute(string key, System.Type type)
         {
-            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
-            set { _additionalProperties = value; }
+            Key = key;
+            Type = type;
         }
 
+        public string Key { get; }
+
+        public System.Type Type { get; }
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.1.0.0 (NJsonSchema v11.0.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public class JsonInheritanceConverter : Newtonsoft.Json.JsonConverter
+    {
+        internal static readonly string DefaultDiscriminatorName = "discriminator";
+
+        private readonly string _discriminatorName;
+
+        [System.ThreadStatic]
+        private static bool _isReading;
+
+        [System.ThreadStatic]
+        private static bool _isWriting;
+
+        public JsonInheritanceConverter()
+        {
+            _discriminatorName = DefaultDiscriminatorName;
+        }
+
+        public JsonInheritanceConverter(string discriminatorName)
+        {
+            _discriminatorName = discriminatorName;
+        }
+
+        public string DiscriminatorName { get { return _discriminatorName; } }
+
+        public override void WriteJson(Newtonsoft.Json.JsonWriter writer, object value, Newtonsoft.Json.JsonSerializer serializer)
+        {
+            try
+            {
+                _isWriting = true;
+
+                var jObject = Newtonsoft.Json.Linq.JObject.FromObject(value, serializer);
+                jObject.AddFirst(new Newtonsoft.Json.Linq.JProperty(_discriminatorName, GetSubtypeDiscriminator(value.GetType())));
+                writer.WriteToken(jObject.CreateReader());
+            }
+            finally
+            {
+                _isWriting = false;
+            }
+        }
+
+        public override bool CanWrite
+        {
+            get
+            {
+                if (_isWriting)
+                {
+                    _isWriting = false;
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        public override bool CanRead
+        {
+            get
+            {
+                if (_isReading)
+                {
+                    _isReading = false;
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        public override bool CanConvert(System.Type objectType)
+        {
+            return true;
+        }
+
+        public override object ReadJson(Newtonsoft.Json.JsonReader reader, System.Type objectType, object existingValue, Newtonsoft.Json.JsonSerializer serializer)
+        {
+            var jObject = serializer.Deserialize<Newtonsoft.Json.Linq.JObject>(reader);
+            if (jObject == null)
+                return null;
+
+            var discriminatorValue = jObject.GetValue(_discriminatorName);
+            var discriminator = discriminatorValue != null ? Newtonsoft.Json.Linq.Extensions.Value<string>(discriminatorValue) : null;
+            var subtype = GetObjectSubtype(objectType, discriminator);
+
+            var objectContract = serializer.ContractResolver.ResolveContract(subtype) as Newtonsoft.Json.Serialization.JsonObjectContract;
+            if (objectContract == null || System.Linq.Enumerable.All(objectContract.Properties, p => p.PropertyName != _discriminatorName))
+            {
+                jObject.Remove(_discriminatorName);
+            }
+
+            try
+            {
+                _isReading = true;
+                return serializer.Deserialize(jObject.CreateReader(), subtype);
+            }
+            finally
+            {
+                _isReading = false;
+            }
+        }
+
+        private System.Type GetObjectSubtype(System.Type objectType, string discriminator)
+        {
+            foreach (var attribute in System.Reflection.CustomAttributeExtensions.GetCustomAttributes<JsonInheritanceAttribute>(System.Reflection.IntrospectionExtensions.GetTypeInfo(objectType), true))
+            {
+                if (attribute.Key == discriminator)
+                    return attribute.Type;
+            }
+
+            return objectType;
+        }
+
+        private string GetSubtypeDiscriminator(System.Type objectType)
+        {
+            foreach (var attribute in System.Reflection.CustomAttributeExtensions.GetCustomAttributes<JsonInheritanceAttribute>(System.Reflection.IntrospectionExtensions.GetTypeInfo(objectType), true))
+            {
+                if (attribute.Type == objectType)
+                    return attribute.Key;
+            }
+
+            return objectType.Name;
+        }
     }
 
 
