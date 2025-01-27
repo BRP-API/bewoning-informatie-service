@@ -9,7 +9,7 @@ PARAMS="{ \
 }"
 
 npx cucumber-js -f json:./test-reports/cucumber-js/step-definitions/test-result-zonder-dependency-integratie.json \
-                -f summary:./test-reports/cucumber-js/bewoning/test-result-zonder-dependency-integratie-summary.txt \
+                -f summary:./test-reports/cucumber-js/step-definitions/test-result-zonder-dependency-integratie-summary.txt \
                 -f summary \
                 features/docs \
                 --tags "not @integratie" \
