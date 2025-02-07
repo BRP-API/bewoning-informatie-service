@@ -15,10 +15,17 @@ npx cucumber-js -f json:./test-reports/cucumber-js/step-definitions/test-result-
                 --tags "not @integratie" \
                 --tags "not @skip-verify"
 
-npx cucumber-js -f json:./test-reports/cucumber-js/bewoning/test-result.json \
-                -f summary:./test-reports/cucumber-js/bewoning/test-result-summary.txt \
-                -f summary \
-                features \
-                --tags "not @stap-documentatie" \
-                --tags "not @skip-verify" \
-                --world-parameters "$PARAMS"
+verify() {
+    npx cucumber-js -f json:./test-reports/cucumber-js/bewoning/test-result-$1.json \
+                    -f summary:./test-reports/cucumber-js/bewoning/test-result-$1-summary.txt \
+                    -f summary \
+                    features/$1 \
+                    --tags "not @stap-documentatie" \
+                    --tags "not @skip-verify" \
+                    --world-parameters "$PARAMS"
+}
+
+verify "geboortedatum"
+verify "naam"
+verify "raadpleeg-bewoning-met-periode"
+verify "raadpleeg-bewoning-op-peildatum"
