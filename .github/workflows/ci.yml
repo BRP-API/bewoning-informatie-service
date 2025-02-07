@@ -98,14 +98,10 @@ jobs:
         run: |
           ./scripts/specs-verify.sh
 
-      - name: Genereer step summary
+      - name: Genereer step summary en voeg toe aan Github Step Summary
         if: always()
         run: |
           node ./scripts/generate-step-summary.js
-        
-      - name: Voeg test summary toe aan Github Step Summary
-        if: always()
-        run: |
           echo "### Cucumber Test Reports" >> $GITHUB_STEP_SUMMARY
           cat test-reports/cucumber-js/bewoning/step-summary.txt >> $GITHUB_STEP_SUMMARY
 
@@ -128,7 +124,7 @@ jobs:
             test-reports
             test-data/logs
       - name: Push test rapportage naar brp-api.github.io repo
-        if: always()
+        if: false
         uses: tech-thinker/push-to-repo@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.GIT_PAT_TOKEN }}
