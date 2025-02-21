@@ -69,6 +69,8 @@ internal static class Constanten
         "adresseringBinnenland.indicatieVastgesteldVerblijftNietOpAdres",
 
         "adresseringBinnenland.inOnderzoek",
+        "adresseringBinnenland.inOnderzoek.aanhef",
+        "adresseringBinnenland.inOnderzoek.aanschrijfwijze",
         "adresseringBinnenland.inOnderzoek.adresregel1",
         "adresseringBinnenland.inOnderzoek.adresregel2",
         "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekVerblijfplaats",
@@ -78,6 +80,21 @@ internal static class Constanten
         "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekVerblijfplaats.onbekend",
         "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekVerblijfplaats.jaar",
         "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekVerblijfplaats.maand",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPartner",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPartner.langFormaat",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPartner.type",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPartner.datum",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPartner.onbekend",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPartner.jaar",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPartner.maand",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPersoon",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPersoon.langFormaat",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPersoon.type",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPersoon.datum",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPersoon.onbekend",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPersoon.jaar",
+        "adresseringBinnenland.inOnderzoek.datumIngangOnderzoekPersoon.maand",
+        "adresseringBinnenland.inOnderzoek.gebruikInLopendeTekst",
     };
 
     internal static readonly string[] FieldsAdresseringBinnenland =
@@ -422,6 +439,7 @@ internal static class Constanten
         "naam.inOnderzoek.datumIngangOnderzoek.jaar",
         "naam.inOnderzoek.datumIngangOnderzoek.maand",
 
+        "naam.inOnderzoek.aanduidingNaamgebruik",
         "naam.inOnderzoek.adellijkeTitelPredicaat",
         "naam.inOnderzoek.geslachtsnaam",
         "naam.inOnderzoek.volledigeNaam",
@@ -862,6 +880,22 @@ internal static class Constanten
         "verblijfplaatsBinnenland.functieAdres.code",
         "verblijfplaatsBinnenland.functieAdres.omschrijving",
 
+        "verblijfplaatsBinnenland.indicatieVastgesteldVerblijftNietOpAdres",
+        "verblijfplaatsBinnenland.inOnderzoek.adresseerbaarObjectIdentificatie",
+        "verblijfplaatsBinnenland.inOnderzoek.functieAdres",
+        "verblijfplaatsBinnenland.inOnderzoek",
+        "verblijfplaatsBinnenland.inOnderzoek.datumIngangGeldigheid",
+        "verblijfplaatsBinnenland.inOnderzoek.datumIngangOnderzoek",
+        "verblijfplaatsBinnenland.inOnderzoek.datumIngangOnderzoek.langFormaat",
+        "verblijfplaatsBinnenland.inOnderzoek.datumIngangOnderzoek.type",
+        "verblijfplaatsBinnenland.inOnderzoek.datumIngangOnderzoek.datum",
+        "verblijfplaatsBinnenland.inOnderzoek.datumIngangOnderzoek.onbekend",
+        "verblijfplaatsBinnenland.inOnderzoek.datumIngangOnderzoek.jaar",
+        "verblijfplaatsBinnenland.inOnderzoek.datumIngangOnderzoek.maand",
+        "verblijfplaatsBinnenland.inOnderzoek.datumVan",
+        "verblijfplaatsBinnenland.inOnderzoek.nummeraanduidingIdentificatie",
+        "verblijfplaatsBinnenland.inOnderzoek.type",
+
         "verblijfplaatsBinnenland.type",
 
         "verblijfplaatsBinnenland.verblijfadres",
@@ -876,7 +910,26 @@ internal static class Constanten
         "verblijfplaatsBinnenland.verblijfadres.postcode",
         "verblijfplaatsBinnenland.verblijfadres.woonplaats",
 
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.aanduidingBijHuisnummer",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.datumIngangOnderzoek",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.datumIngangOnderzoek.langFormaat",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.datumIngangOnderzoek.type",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.datumIngangOnderzoek.datum",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.datumIngangOnderzoek.onbekend",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.datumIngangOnderzoek.jaar",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.datumIngangOnderzoek.maand",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.huisletter",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.huisnummer",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.huisnummertoevoeging",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.korteStraatnaam",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.officieleStraatnaam",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.postcode",
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.woonplaats",
+
         "verblijfplaatsBinnenland.verblijfadres.locatiebeschrijving",
+
+        "verblijfplaatsBinnenland.verblijfadres.inOnderzoek.locatiebeschrijving",
     };
 
     internal static readonly string[] FieldsVerblijfstitel = new[]
