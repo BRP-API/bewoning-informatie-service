@@ -9,9 +9,9 @@ public class ZoekMetGeslachtsnaamEnGeboortedatumQueryValidator : AbstractValidat
     public ZoekMetGeslachtsnaamEnGeboortedatumQueryValidator()
     {
         Include(new NietGespecificeerdeParametersValidator(GespecificeerdeParameterNamen));
-        Include(new GeboortedatumVerplichtValidator());
-        Include(new GeslachtsnaamVerplichtValidator());
-        Include(new VoornamenValidator());
+        Include(new DatumValidator(parameterNaam: "geboortedatum", isVerplichtVeld: true));
+        Include(new GeslachtsnaamValidator(isVerplichtVeld: true));
+        Include(new VoornamenValidator(isVerplichtVeld: false));
         Include(new VoorvoegselOptioneelValidator());
         Include(new GeslachtOptioneelValidator());
         Include(new InclusiefOverledenPersonenOptioneelValidator());
