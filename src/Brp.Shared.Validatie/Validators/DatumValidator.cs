@@ -12,21 +12,24 @@ public class DatumValidator : AbstractValidator<JObject>
 
     public DatumValidator(string parameterNaam, bool isVerplichtVeld = false)
     {
+        var rule = RuleFor(x => x.Value<string>(parameterNaam))
+                    .Cascade(CascadeMode.Stop);
+
         if (isVerplichtVeld)
         {
-            RuleFor(x => x.Value<string>(parameterNaam))
-                .Cascade(CascadeMode.Stop)
-                .NotEmpty().WithMessage(RequiredErrorMessage)
-                .Matches(DatePattern).WithMessage(DateErrorMessage)
-                .OverridePropertyName(parameterNaam)
-                .Custom((datumTot, context) =>
-                {
-                    if (!datumTot.IsDateTime())
-                    {
-                        context.AddFailure(DateErrorMessage);
-                    }
-                })
-                ;
+            rule.NotEmpty().WithMessage(RequiredErrorMessage);
         }
+
+        rule.Matches(DatePattern).WithMessage(DateErrorMessage)
+            .OverridePropertyName(parameterNaam)
+            .Custom((datum, context) =>
+            {
+                if (!string.IsNullOrEmpty(datum) &&
+                    !datum.IsDateTime())
+                {
+                    context.AddFailure(DateErrorMessage);
+                }
+            })
+            ;
     }
 }

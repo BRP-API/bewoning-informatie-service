@@ -10,7 +10,7 @@ public class ZoekMetNaamEnGemeenteVanInschrijvingQueryValidator : AbstractValida
     {
         Include(new NietGespecificeerdeParametersValidator(GespecificeerdeParameterNamen));
         Include(new GemeenteVanInschrijvingValidator(isVerplichtVeld: true));
-        Include(new GeslachtsnaamVerplichtValidator());
+        Include(new GeslachtsnaamValidator(isVerplichtVeld: true));
         Include(new VoornamenValidator(isVerplichtVeld: true));
         Include(new VoorvoegselOptioneelValidator());
         Include(new GeslachtOptioneelValidator());
