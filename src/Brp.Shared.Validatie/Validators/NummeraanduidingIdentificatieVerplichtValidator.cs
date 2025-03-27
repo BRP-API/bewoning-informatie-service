@@ -8,7 +8,7 @@ public class NummeraanduidingIdentificatieVerplichtValidator : AbstractValidator
     private const string ParameterNaam = "nummeraanduidingIdentificatie";
 
     const string RequiredErrorMessage = "required||Parameter is verplicht.";
-    const string NummeraanduidingIdentificatiePattern = @"^[0-9]{16}$";
+    const string NummeraanduidingIdentificatiePattern = @"^(?!0{16})[0-9]{16}$";
     const string NummeraanduidingIdentificatiePatternErrorMessage = $"pattern||Waarde voldoet niet aan patroon {NummeraanduidingIdentificatiePattern}.";
 
     public NummeraanduidingIdentificatieVerplichtValidator()
