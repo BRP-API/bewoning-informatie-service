@@ -9,7 +9,7 @@ public class NietGespecificeerdeParametersValidator : AbstractValidator<JObject>
     {
         RuleForEach(x => x.Properties()
                           .Where(x => !gespecificeerdeParameterNamen.Contains(x.Name))
-                          .Select(p => new KeyValuePair<string, object>(p.Name, p.Value)))
+                          .Select(p => new KeyValuePair<string, object>(System.Web.HttpUtility.HtmlEncode(p.Name), p.Value)))
             .SetValidator(new NietGespecificeerdeParameterValidator()).OverridePropertyName("MyProperty");
     }
 }
