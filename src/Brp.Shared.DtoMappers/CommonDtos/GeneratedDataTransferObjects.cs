@@ -101,6 +101,32 @@ namespace Brp.Shared.DtoMappers.CommonDtos
 
     }
 
+    /// <summary>
+    /// Gegevens over de RNI-deelnemer die de gegevens in de betrokken categorie heeft aangeleverd.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class RniDeelnemer
+    {
+        [Newtonsoft.Json.JsonProperty("deelnemer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Waardetabel Deelnemer { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("omschrijvingVerdrag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OmschrijvingVerdrag { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("categorie", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Categorie { get; set; }
+
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
+
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties ?? (_additionalProperties = new System.Collections.Generic.Dictionary<string, object>()); }
+            set { _additionalProperties = value; }
+        }
+
+    }
+
 
 }
 
