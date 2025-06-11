@@ -89,6 +89,7 @@
         "AdellijkeTitelPredicaatSoort",
         "AdellijkeTitelPredicaatType",
         "Geslachtsaanduiding",
+        "RniDeelnemer",
         "NaamBasis"
       ],
       "excludedParameterNames": [],
