@@ -82,6 +82,9 @@
       "excludedTypeNames": [
         "InformatieApiRequest",
         "InformatieApiResponse",
+        "AdresseringResponse",
+        "KiesrechtResponse",
+        "NaamResponse",
         "DatumsResponse",
         "GeboorteResponse",
         "Foutbericht",
@@ -91,8 +94,7 @@
         "Waardetabel",
         "AdellijkeTitelPredicaatSoort",
         "AdellijkeTitelPredicaatType",
-        "Geslachtsaanduiding",
-        "NaamBasis"
+        "Geslachtsaanduiding"
       ],
       "excludedParameterNames": [],
       "handleReferences": false,
