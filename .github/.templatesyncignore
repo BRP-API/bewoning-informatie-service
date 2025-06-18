@@ -11,5 +11,5 @@
 :!.docker/db.yml
 :!.docker/db-ci.yml
 :!.docker/Dockerfile
-:!tests
+:!tests/*.*
 *
