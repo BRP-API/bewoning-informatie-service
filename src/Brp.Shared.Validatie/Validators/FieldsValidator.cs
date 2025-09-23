@@ -16,6 +16,7 @@ public class FieldsValidator : AbstractValidator<JObject>
     const string FieldPatternErrorMessage = $"pattern||Waarde voldoet niet aan patroon {FieldPattern}.";
     const string FieldExistErrorMessage = "fields||Parameter bevat een niet bestaande veldnaam.";
     const string FieldAllowedErrorMessage = "fields||Parameter bevat een niet toegestane veldnaam.";
+    const string Wildcard = "*";
 
     public FieldsValidator(IEnumerable<string> fieldNames, IEnumerable<string> notAllowedFieldNames, int maxNumberFields)
     {
@@ -49,8 +50,12 @@ public class FieldsValidator : AbstractValidator<JObject>
                 .Cascade(CascadeMode.Stop)
                 .Must(x => x != null).WithMessage(RequiredErrorMessage)
                 .Matches(FieldPattern).WithMessage(FieldPatternErrorMessage)
-                .Must(x => fieldNames.Contains(x)).WithMessage(FieldExistErrorMessage)
-                .Must(x => !x.ContainsAny(notAllowedFieldNames)).WithMessage(FieldAllowedErrorMessage);
+                .Must(x => !x.ContainsAny(notAllowedFieldNames)).WithMessage(FieldAllowedErrorMessage)
+                .Must(x => IsExistingField(x, fieldNames)).WithMessage(FieldExistErrorMessage);
         }
+
+        private static bool IsExistingField(string? field, IEnumerable<string> fieldNames) => MatchesExactOrWildcard(field, fieldNames);
+        
+        private static bool MatchesExactOrWildcard(string? x, IEnumerable<string> p) => x != null && p.Any(f => f.Equals(x) || f.EndsWith(Wildcard) && x.StartsWith(f[..^1]));
     }
 }
