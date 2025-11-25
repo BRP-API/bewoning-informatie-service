@@ -22,9 +22,7 @@ public class FieldsValidator : AbstractValidator<JObject>
     {
         RuleFor(x => x.GetValue(ParameterNaam))
             .Cascade(CascadeMode.Stop)
-            .NotNull().OverridePropertyName(ParameterNaam).WithMessage(RequiredErrorMessage)
-            .When(x => x != null)
-                .Must(x => x!.Type == JTokenType.Array).OverridePropertyName(ParameterNaam).WithMessage(NotArrayErrorMessage)
+            .MustBeArray(ParameterNaam)
         ;
 
         When(x => x.GetValue(ParameterNaam) != null &&
