@@ -1,6 +1,6 @@
 ﻿namespace Brp.Shared.DtoMappers.BrpApiDtos;
 
-public partial class Overlijden
+public partial class Overlijden : IDatumPlaatsLandDto
 {
     public bool ShouldSerialize() =>
         Datum != null ||
