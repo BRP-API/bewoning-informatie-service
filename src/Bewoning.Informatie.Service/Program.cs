@@ -24,7 +24,7 @@ try
                          .AddEnvironmentVariables();
 
     Brp.Shared.DtoMappers.SetupHelpers.AddBrpSharedDtoMappers();
-    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+    builder.Services.AddAutoMapper(cfg => { }, AppDomain.CurrentDomain.GetAssemblies());
     builder.Services.AddOcelot();
 
 
