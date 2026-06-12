@@ -31,6 +31,9 @@ permissions:
 env:
   NODE_VERSION: '20'
   DOTNET_SOLUTION_FILE_PATH: src/BewoningInformatieService.sln
+  INFRA_PROJECT_PATH: ./src/Brp.Shared.Infrastructure
+  DTO_PROJECT_PATH: ./src/Brp.Shared.DtoMappers
+  VALIDATIE_PROJECT_PATH: ./src/Brp.Shared.Validatie
   APP_PROJECT_PATH: ./src/Bewoning.Informatie.Service
   APP_CSPROJ_FILE_PATH: ./src/Bewoning.Informatie.Service/Bewoning.Informatie.Service.csproj
   APP_CONTAINER_IMAGE: ghcr.io/brp-api/bewoning-informatie-service
@@ -70,6 +73,9 @@ jobs:
           filters: |
             app:
               - '${{ env.APP_PROJECT_PATH }}/**'
+              - '${{ env.INFRA_PROJECT_PATH }}/**'
+              - '${{ env.DTO_PROJECT_PATH }}/**'
+              - '${{ env.VALIDATIE_PROJECT_PATH }}/**'
             mock:
               - '${{ env.MOCK_PROJECT_PATH }}/**'
   
@@ -158,7 +164,7 @@ jobs:
           driver: docker-container
 
       - name: Build & push app container images naar registry
-        if: always() && (steps.changed-project.outputs.app == 'true' || inputs.publishType == 'app')
+        if: always() && (steps.changed-project.outputs.app == 'true' || inputs.publishType == 'app' || github.ref == 'refs/heads/main')
         uses: docker/build-push-action@v6
         with:
           file: ${{ env.APP_PROJECT_PATH }}/Dockerfile
@@ -172,7 +178,7 @@ jobs:
             ${{ env.APP_CONTAINER_IMAGE }}:${{ github.sha }}
             
       - name: Build & push mock container images naar registry
-        if: always() && (steps.changed-project.outputs.mock == 'true' || inputs.publishType == 'mock')
+        if: always() && (steps.changed-project.outputs.mock == 'true' || inputs.publishType == 'mock' || github.ref == 'refs/heads/main')
         uses: docker/build-push-action@v6
         with:
           file: ${{ env.MOCK_PROJECT_PATH }}/Dockerfile
