@@ -21,9 +21,6 @@ try
 
     builder.SetupBewoningenRequestValidation();
 
-    Brp.Shared.DtoMappers.SetupHelpers.AddBrpSharedDtoMappers();
-    builder.Services.AddAutoMapper(cfg => { }, AppDomain.CurrentDomain.GetAssemblies());
-
     builder.Services.AddControllers()
                     .AddNewtonsoftJson();
 

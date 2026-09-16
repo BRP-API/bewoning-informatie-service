@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Bewoning.Informatie.Service.Helpers;
+﻿using Bewoning.Informatie.Service.Helpers;
 using Brp.Shared.Infrastructure.Http;
 using Brp.Shared.Infrastructure.Stream;
 using Brp.Shared.Validatie.Handlers;
@@ -11,14 +10,12 @@ public class OverwriteResponseBodyMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly ILogger<OverwriteResponseBodyMiddleware> _logger;
-    private readonly IMapper _mapper;
     private readonly IDiagnosticContext _diagnosticContext;
 
-    public OverwriteResponseBodyMiddleware(RequestDelegate next, ILogger<OverwriteResponseBodyMiddleware> logger, IMapper mapper, IDiagnosticContext diagnosticContext)
+    public OverwriteResponseBodyMiddleware(RequestDelegate next, ILogger<OverwriteResponseBodyMiddleware> logger, IDiagnosticContext diagnosticContext)
     {
         _next = next;
         _logger = logger;
-        _mapper = mapper;
         _diagnosticContext = diagnosticContext;
     }
 
@@ -49,7 +46,7 @@ public class OverwriteResponseBodyMiddleware
         }
 
         var modifiedBody = context.Response.StatusCode == StatusCodes.Status200OK
-            ? body.Transform(_mapper, _logger)
+            ? body.Transform(_logger)
             : body;
 
         if (Log.IsEnabled(Serilog.Events.LogEventLevel.Debug))

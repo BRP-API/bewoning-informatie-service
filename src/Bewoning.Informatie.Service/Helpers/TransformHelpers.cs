@@ -1,7 +1,6 @@
-﻿using AutoMapper;
-using Gba = Bewoning.Informatie.Service.Generated.Gba;
+﻿using Gba = Bewoning.Informatie.Service.Generated.Gba;
 using Newtonsoft.Json;
-using Bewoning.Informatie.Service.Generated;
+using Bewoning.Informatie.Service.Profiles;
 using Brp.Shared.Infrastructure.Json;
 
 namespace Bewoning.Informatie.Service.Helpers;
@@ -19,7 +18,7 @@ public static class TransformHelpers
         return proxyTokens.Exists(t => payload.Contains(t));
     }
 
-    public static string Transform(this string payload, IMapper mapper, ILogger logger)
+    public static string Transform(this string payload, ILogger logger)
     {
         if (payload.IsProxyResponse())
         {
@@ -29,7 +28,6 @@ public static class TransformHelpers
 
         var response = JsonConvert.DeserializeObject<Gba.GbaBewoningenQueryResponse>(payload);
 
-        return mapper.Map<BewoningenQueryResponse>(response)
-                     .ToJsonCompact();
+        return response!.Map().ToJsonCompact();
     }
 }

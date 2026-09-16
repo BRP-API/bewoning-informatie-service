@@ -1,13 +1,16 @@
-﻿using AutoMapper;
-using HC = Bewoning.Informatie.Service.Generated;
+﻿using HC = Bewoning.Informatie.Service.Generated;
 using Gba = Bewoning.Informatie.Service.Generated.Gba;
 
 namespace Bewoning.Informatie.Service.Profiles;
 
-public class PeriodeProfile : Profile
+public static class PeriodeMapper
 {
-    public PeriodeProfile()
+    public static HC.Periode Map(this Gba.Periode src)
     {
-        CreateMap<Gba.Periode, HC.Periode>();
+        return new HC.Periode
+        {
+            DatumVan = src.DatumVan,
+            DatumTot = src.DatumTot,
+        };
     }
 }
