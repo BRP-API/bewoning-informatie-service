@@ -4,6 +4,13 @@ namespace Brp.Shared.DtoMappers.Mappers;
 
 public static class LeeftijdMapper
 {
+    public static int? Leeftijd(this AbstractDatum datum, BrpDtos.GbaOpschortingBijhouding opschortingBijhouding)
+    {
+        return opschortingBijhouding == null || opschortingBijhouding.Reden?.Code != "O"
+            ? datum.Leeftijd()
+            : null;
+    }
+
     public static int? Leeftijd(this AbstractDatum datum)
     {
         return datum switch

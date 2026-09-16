@@ -12,7 +12,7 @@ public partial class Ouder
         !string.IsNullOrWhiteSpace(Burgerservicenummer) ||
         DatumIngangFamilierechtelijkeBetrekking != null ||
         Geslacht != null ||
-        !string.IsNullOrWhiteSpace(OuderAanduiding) 
+        !string.IsNullOrWhiteSpace(OuderAanduiding)
         ;
 }
 

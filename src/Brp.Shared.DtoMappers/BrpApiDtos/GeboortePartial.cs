@@ -5,7 +5,7 @@ public partial class Geboorte : IDatumPlaatsLandDto
     public bool ShouldSerialize() =>
         Datum != null ||
         Land != null ||
-        Plaats != null||
+        Plaats != null ||
         InOnderzoek != null
         ;
 

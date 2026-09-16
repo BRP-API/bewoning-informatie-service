@@ -23,8 +23,6 @@ try
                          .AddJsonFile(Path.Combine("configuration", $"ocelot.{builder.Environment.EnvironmentName}.json"), true)
                          .AddEnvironmentVariables();
 
-    Brp.Shared.DtoMappers.SetupHelpers.AddBrpSharedDtoMappers();
-    builder.Services.AddAutoMapper(cfg => { }, AppDomain.CurrentDomain.GetAssemblies());
     builder.Services.AddOcelot();
 
 

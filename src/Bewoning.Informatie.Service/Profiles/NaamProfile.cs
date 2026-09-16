@@ -1,13 +1,18 @@
-﻿using AutoMapper;
+﻿using Brp.Shared.DtoMappers.Mappers;
 using HC = Bewoning.Informatie.Service.Generated;
 using Gba = Bewoning.Informatie.Service.Generated.Gba;
 
 namespace Bewoning.Informatie.Service.Profiles;
 
-public class NaamProfile : Profile
+public static class NaamMapper
 {
-    public NaamProfile()
+    public static HC.Naam? Map(this Gba.NaamBasis? src, Gba.Geslachtsaanduiding geslacht)
     {
-        CreateMap<Gba.NaamBasis, HC.Naam>();
+        return src != null
+            ? new HC.Naam
+            {
+                VolledigeNaam = src.VolledigeNaam(geslacht),
+            }
+            : null;
     }
 }

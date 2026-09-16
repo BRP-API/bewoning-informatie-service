@@ -2,7 +2,7 @@
 
 public partial class Verblijfstitel
 {
-    public bool ShouldSerialize() => 
+    public bool ShouldSerialize() =>
         Aanduiding != null ||
         DatumEinde != null ||
         DatumIngang != null ||

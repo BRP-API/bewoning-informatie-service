@@ -1,16 +1,15 @@
-﻿using AutoMapper;
-using HC = Bewoning.Informatie.Service.Generated;
+﻿using HC = Bewoning.Informatie.Service.Generated;
 using Gba = Bewoning.Informatie.Service.Generated.Gba;
 
 namespace Bewoning.Informatie.Service.Profiles;
 
-
-public class BewoningenQueryResponseProfile : Profile
+public static class BewoningenQueryResponseMapper
 {
-    public BewoningenQueryResponseProfile()
+    public static HC.BewoningenQueryResponse Map(this Gba.GbaBewoningenQueryResponse src)
     {
-        CreateMap<Gba.GbaBewoning, HC.Bewoning>();
-
-        CreateMap<Gba.GbaBewoningenQueryResponse, HC.BewoningenQueryResponse>();
+        return new HC.BewoningenQueryResponse
+            {
+                Bewoningen = [.. src.Bewoningen.Map()],
+            };
     }
 }
