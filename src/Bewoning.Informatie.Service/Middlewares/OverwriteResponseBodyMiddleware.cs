@@ -57,6 +57,6 @@ public class OverwriteResponseBodyMiddleware
         using var bodyStream = modifiedBody.ToMemoryStream(context.Response.UseGzip());
 
         context.Response.ContentLength = bodyStream.Length;
-        await bodyStream.CopyToAsync(orgBodyStream);
+        await bodyStream.CopyToAsync(orgBodyStream, context.RequestAborted);
     }
 }
