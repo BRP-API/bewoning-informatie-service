@@ -2,7 +2,7 @@
 
 public partial class VerblijfplaatsOnbekend
 {
-    public override bool ShouldSerialize() => 
+    public override bool ShouldSerialize() =>
         DatumIngangGeldigheid != null ||
         DatumVan != null
         ;

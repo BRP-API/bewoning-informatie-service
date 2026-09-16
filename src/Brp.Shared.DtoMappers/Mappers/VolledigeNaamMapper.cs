@@ -8,7 +8,7 @@ public static class VolledigeNaamMapper
     {
         var adellijkeTitel = naam.AdellijkeTitelPredicaat.MapNaarAdellijkeTitel(geslacht);
         var predikaat = naam.AdellijkeTitelPredicaat.MapNaarPredicaat(geslacht);
-        var geslachtsnaam = !string.IsNullOrWhiteSpace(naam.Geslachtsnaam) && !naam.Geslachtsnaam.Equals(".")? naam.Geslachtsnaam : string.Empty;
+        var geslachtsnaam = !string.IsNullOrWhiteSpace(naam.Geslachtsnaam) && !naam.Geslachtsnaam.Equals(".") ? naam.Geslachtsnaam : string.Empty;
 
         var retval = $"{predikaat} {naam.Voornamen} {adellijkeTitel} {naam.Voorvoegsel} {geslachtsnaam}".RemoveRedundantSpaces();
 

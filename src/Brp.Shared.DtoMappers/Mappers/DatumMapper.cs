@@ -7,7 +7,7 @@ namespace Brp.Shared.DtoMappers.Mappers;
 public static class DatumMapper
 {
     private static readonly Regex GbaDatumRegex = new("^(?<jaar>[0-9]{4})(?<maand>[0-9]{2})(?<dag>[0-9]{2})$", RegexOptions.None, TimeSpan.FromMilliseconds(100));
-    private static readonly Dictionary<int, string> MaandDictionary = new ()
+    private static readonly Dictionary<int, string> MaandDictionary = new()
     {
         {1, "januari" },
         {2, "februari" },

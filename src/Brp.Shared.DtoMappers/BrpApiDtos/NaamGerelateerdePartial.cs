@@ -9,7 +9,7 @@ public partial class NaamGerelateerde : INaamBasis
         !string.IsNullOrWhiteSpace(Geslachtsnaam) ||
         !string.IsNullOrWhiteSpace(Voornamen) ||
         !string.IsNullOrWhiteSpace(Voorvoegsel) ||
-        !string.IsNullOrWhiteSpace(Voorletters)||
+        !string.IsNullOrWhiteSpace(Voorletters) ||
         InOnderzoek != null
         ;
 
