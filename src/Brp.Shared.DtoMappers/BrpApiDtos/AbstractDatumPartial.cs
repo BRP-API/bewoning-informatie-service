@@ -29,9 +29,10 @@ public partial class AbstractDatum
     {
         return datum switch
         {
-            VolledigeDatum v => (v.Datum!.Value.Year, v.Datum!.Value.Month, v.Datum!.Value.Day),
-            JaarMaandDatum v => (v.Jaar!.Value, v.Maand!.Value, 0),
-            JaarDatum v => (v.Jaar!.Value, 0, 0),
+            
+            VolledigeDatum { Datum: {} v} => (v.Year, v.Month, v.Day), 
+            JaarMaandDatum { Jaar: {} j, Maand: {} m} => (j, m, 0),
+            JaarDatum { Jaar: {} j} => (j, 0, 0), 
             _ => (0, 0, 0),
         };
     }
