@@ -49,11 +49,6 @@ public static class PartnerMapper
             };
     }
 
-  private static CommonDtos.Waardetabel? MapSoortVerbintenis(this CommonDtos.Waardetabel? soortVerbintenis) =>
-      soortVerbintenis?.Code == "."
-        ? null
-        : soortVerbintenis?.Map();
-
     public static BrpApiDtos.AangaanHuwelijkPartnerschap? Map(this BrpDtos.GbaAangaanHuwelijkPartnerschap? aangaanHuwelijkPartnerschap, BrpDtos.InOnderzoek inOnderzoek)
     {
         if (aangaanHuwelijkPartnerschap == null && inOnderzoek != null)
@@ -161,4 +156,9 @@ public static class PartnerMapper
             _ => null
         };
     }
+
+    private static CommonDtos.Waardetabel? MapSoortVerbintenis(this CommonDtos.Waardetabel? soortVerbintenis) =>
+      soortVerbintenis?.Code == "."
+        ? null
+        : soortVerbintenis?.Map();
 }
