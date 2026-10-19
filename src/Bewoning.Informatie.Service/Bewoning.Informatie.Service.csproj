@@ -9,7 +9,7 @@
     <Version>2.0.1</Version>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ocelot" Version="24.1.0" />
+    <PackageReference Include="Ocelot" Version="25.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
   <ItemGroup>
