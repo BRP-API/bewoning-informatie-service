@@ -1,4 +1,4 @@
-﻿using Brp.Shared.Infrastructure.Utils;
+using Brp.Shared.Infrastructure.Utils;
 using FluentValidation;
 using Newtonsoft.Json.Linq;
 

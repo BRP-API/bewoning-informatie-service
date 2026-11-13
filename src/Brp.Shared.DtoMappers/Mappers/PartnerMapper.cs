@@ -38,14 +38,14 @@ public static class PartnerMapper
     {
         if (ontbindingHuwelijkPartnerschap == null && inOnderzoek != null)
         {
-          ontbindingHuwelijkPartnerschap = new BrpDtos.GbaOntbindingHuwelijkPartnerschap { InOnderzoek = inOnderzoek };
+            ontbindingHuwelijkPartnerschap = new BrpDtos.GbaOntbindingHuwelijkPartnerschap { InOnderzoek = inOnderzoek };
         }
         return ontbindingHuwelijkPartnerschap == null
             ? null
             : new BrpApiDtos.OntbindingHuwelijkPartnerschap
             {
-              Datum = ontbindingHuwelijkPartnerschap.Datum?.Map(),
-              InOnderzoek = ontbindingHuwelijkPartnerschap.InOnderzoek.OntbondenPartnerInOnderzoek()
+                Datum = ontbindingHuwelijkPartnerschap.Datum?.Map(),
+                InOnderzoek = ontbindingHuwelijkPartnerschap.InOnderzoek.OntbondenPartnerInOnderzoek()
             };
     }
 

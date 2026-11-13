@@ -11,14 +11,14 @@ public static class NationaliteitMapper
     private const string GroepOpnemenNationaliteit = "046300";
     private const string RedenOpnameNationaliteit = "046310";
 
-  public static Collection<AbstractNationaliteit>? Map(this ICollection<BrpDtos.GbaNationaliteit> nationaliteiten)
+    public static Collection<AbstractNationaliteit>? Map(this ICollection<BrpDtos.GbaNationaliteit> nationaliteiten)
     {
         var retval = new Collection<AbstractNationaliteit>();
         foreach (var nationaliteit in from nationaliteit in nationaliteiten
                                       where nationaliteit != null
                                       select nationaliteit)
         {
-          retval.Add(nationaliteit.Map()!);
+            retval.Add(nationaliteit.Map()!);
         }
 
         return retval;

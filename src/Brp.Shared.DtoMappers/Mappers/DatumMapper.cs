@@ -1,4 +1,4 @@
-﻿using Brp.Shared.DtoMappers.BrpApiDtos;
+using Brp.Shared.DtoMappers.BrpApiDtos;
 using System.Globalization;
 using System.Text.RegularExpressions;
 

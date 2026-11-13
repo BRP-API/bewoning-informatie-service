@@ -1,4 +1,4 @@
-﻿using Brp.Shared.Infrastructure.Autorisatie;
+using Brp.Shared.Infrastructure.Autorisatie;
 using Brp.Shared.Infrastructure.Http;
 using Brp.Shared.Infrastructure.Logging;
 using Brp.Shared.Infrastructure.ProblemDetails;

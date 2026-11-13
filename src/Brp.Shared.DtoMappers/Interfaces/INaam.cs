@@ -1,4 +1,4 @@
-﻿namespace Brp.Shared.DtoMappers.Interfaces;
+namespace Brp.Shared.DtoMappers.Interfaces;
 
 public interface INaam
 {

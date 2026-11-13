@@ -1,4 +1,4 @@
-﻿namespace Brp.Shared.DtoMappers.BrpDtos;
+namespace Brp.Shared.DtoMappers.BrpDtos;
 
 public partial class GbaOntbindingHuwelijkPartnerschap
 {

@@ -1,4 +1,4 @@
-﻿using Brp.Shared.Infrastructure.Http;
+using Brp.Shared.Infrastructure.Http;
 using Brp.Shared.Infrastructure.ProblemDetails;
 using Microsoft.AspNetCore.Http;
 

@@ -1,4 +1,4 @@
-﻿namespace Brp.Shared.Validatie.Handlers;
+namespace Brp.Shared.Validatie.Handlers;
 
 public interface IRequestBodyValidator
 {
