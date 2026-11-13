@@ -1,4 +1,4 @@
-﻿namespace Brp.Shared.Validatie.Reisdocumenten;
+namespace Brp.Shared.Validatie.Reisdocumenten;
 
 internal static class Constanten
 {

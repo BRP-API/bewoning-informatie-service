@@ -20,7 +20,7 @@ public static class VerblijfstitelMapper
         ? null
         : aanduiding.Map();
 
-  private static BrpApiDtos.VerblijfstitelInOnderzoek? VerblijfstitelInOnderzoek(this BrpDtos.InOnderzoek? source)
+    private static BrpApiDtos.VerblijfstitelInOnderzoek? VerblijfstitelInOnderzoek(this BrpDtos.InOnderzoek? source)
     {
         if (source == null)
         {

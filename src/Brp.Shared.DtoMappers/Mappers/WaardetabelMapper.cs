@@ -1,4 +1,4 @@
-﻿namespace Brp.Shared.DtoMappers.Mappers;
+namespace Brp.Shared.DtoMappers.Mappers;
 
 public static class WaardetabelMapper
 {

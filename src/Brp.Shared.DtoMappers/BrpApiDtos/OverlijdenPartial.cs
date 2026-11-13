@@ -1,4 +1,4 @@
-﻿namespace Brp.Shared.DtoMappers.BrpApiDtos;
+namespace Brp.Shared.DtoMappers.BrpApiDtos;
 
 public partial class Overlijden : IDatumPlaatsLandDto
 {
