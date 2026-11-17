@@ -1,4 +1,4 @@
-﻿using Brp.Shared.Infrastructure.Text;
+using Brp.Shared.Infrastructure.Text;
 using FluentValidation;
 using Newtonsoft.Json.Linq;
 
@@ -53,7 +53,7 @@ public class FieldsValidator : AbstractValidator<JObject>
         }
 
         private static bool IsExistingField(string? field, IEnumerable<string> fieldNames) => MatchesExactOrWildcard(field, fieldNames);
-        
+
         private static bool MatchesExactOrWildcard(string? x, IEnumerable<string> p) => x != null && p.Any(f => f.Equals(x) || f.EndsWith(Wildcard) && x.StartsWith(f[..^1]));
     }
 }

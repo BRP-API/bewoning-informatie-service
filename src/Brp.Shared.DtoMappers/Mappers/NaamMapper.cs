@@ -35,15 +35,15 @@ public static class NaamMapper
         return naam != null || inOnderzoek != null
             ? new NaamPersoon
             {
-              AanduidingNaamgebruik = naam?.AanduidingNaamgebruik.Map(),
-              AdellijkeTitelPredicaat = naam?.AdellijkeTitelPredicaat.Map(),
-              Voorletters = naam?.Voorletters(),
-              Voornamen = naam?.Voornamen,
-              VolledigeNaam = naam?.VolledigeNaam(geslacht),
-              Voorvoegsel = naam?.Voorvoegsel,
-              Geslachtsnaam = naam.MapGeslachtsnaam(),
-              Partners = naam?.Partners?.Map(),
-              InOnderzoek = inOnderzoek?.MapNaamPersoonInOnderzoek()
+                AanduidingNaamgebruik = naam?.AanduidingNaamgebruik.Map(),
+                AdellijkeTitelPredicaat = naam?.AdellijkeTitelPredicaat.Map(),
+                Voorletters = naam?.Voorletters(),
+                Voornamen = naam?.Voornamen,
+                VolledigeNaam = naam?.VolledigeNaam(geslacht),
+                Voorvoegsel = naam?.Voorvoegsel,
+                Geslachtsnaam = naam.MapGeslachtsnaam(),
+                Partners = naam?.Partners?.Map(),
+                InOnderzoek = inOnderzoek?.MapNaamPersoonInOnderzoek()
             }
             : null;
     }

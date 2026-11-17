@@ -1,4 +1,4 @@
-﻿using Brp.Shared.Validatie.Handlers;
+using Brp.Shared.Validatie.Handlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 

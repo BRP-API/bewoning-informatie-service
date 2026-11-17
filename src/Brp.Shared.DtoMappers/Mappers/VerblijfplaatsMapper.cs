@@ -2,15 +2,15 @@ namespace Brp.Shared.DtoMappers.Mappers;
 
 public static class VerblijfplaatsMapper
 {
-  private const string CategorieVerblijfplaats = "080000";
-  private const string GroepAdresBuitenland = "081300";
-  private const string LandAdresBuitenland = "081310";
-  private const string DatumAanvangAdresBuitenland = "081320";
-  private const string GroepGeldigheid = "088500";
-  private const string DatumIngangGeldigheid = "088510";
-  private const string VastgesteldVerblijftNietOpAdres = "089999";
+    private const string CategorieVerblijfplaats = "080000";
+    private const string GroepAdresBuitenland = "081300";
+    private const string LandAdresBuitenland = "081310";
+    private const string DatumAanvangAdresBuitenland = "081320";
+    private const string GroepGeldigheid = "088500";
+    private const string DatumIngangGeldigheid = "088510";
+    private const string VastgesteldVerblijftNietOpAdres = "089999";
 
-  public static BrpApiDtos.AbstractVerblijfplaats? Map(this BrpDtos.GbaVerblijfplaats? source)
+    public static BrpApiDtos.AbstractVerblijfplaats? Map(this BrpDtos.GbaVerblijfplaats? source)
     {
         if (source == null)
         {
