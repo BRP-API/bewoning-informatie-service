@@ -1,4 +1,4 @@
-﻿using Brp.Shared.Validatie.Handlers;
+using Brp.Shared.Validatie.Handlers;
 using Brp.Shared.Validatie.Validators;
 using FluentValidation.Results;
 using Newtonsoft.Json.Linq;

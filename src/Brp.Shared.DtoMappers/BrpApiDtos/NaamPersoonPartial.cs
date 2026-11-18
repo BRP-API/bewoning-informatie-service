@@ -1,4 +1,4 @@
-﻿using Brp.Shared.DtoMappers.Interfaces;
+using Brp.Shared.DtoMappers.Interfaces;
 using Newtonsoft.Json;
 
 namespace Brp.Shared.DtoMappers.BrpApiDtos;

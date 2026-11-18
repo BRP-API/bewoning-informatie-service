@@ -1,4 +1,4 @@
-﻿using FluentValidation;
+using FluentValidation;
 using Newtonsoft.Json.Linq;
 
 namespace Brp.Shared.Validatie.Validators;
@@ -20,7 +20,7 @@ public class GeslachtsnaamValidator : AbstractValidator<JObject>
         {
             rule.NotEmpty().WithMessage(RequiredErrorMessage);
         }
-            
+
         rule.Matches(GeslachtsnaamPattern).WithMessage(GeslachtsnaamPatternErrorMessage)
             .OverridePropertyName(ParameterNaam);
     }

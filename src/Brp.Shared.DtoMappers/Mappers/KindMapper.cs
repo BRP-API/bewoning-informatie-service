@@ -12,7 +12,7 @@ public static class KindMapper
                              where kind != null
                              select kind)
         {
-          retval.Add(kind.Map()!);
+            retval.Add(kind.Map()!);
         }
 
         return retval;

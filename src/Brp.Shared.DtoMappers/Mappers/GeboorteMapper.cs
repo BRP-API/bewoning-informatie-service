@@ -5,34 +5,34 @@ namespace Brp.Shared.DtoMappers.Mappers;
 public static class GeboorteMapper
 {
     public static Geboorte? Map(this BrpDtos.GbaGeboorte? geboorte, BrpDtos.InOnderzoek? inOnderzoek)
-  {
-    return geboorte == null && inOnderzoek == null
-        ? null
-        : new Geboorte
-        {
-          Datum = geboorte?.Datum?.Map(),
-          Plaats = geboorte?.Plaats.MapPlaats(),
-          Land = geboorte?.Land.MapLand(),
-          InOnderzoek = inOnderzoek.MapGeboorteInOnderzoek()
+    {
+        return geboorte == null && inOnderzoek == null
+            ? null
+            : new Geboorte
+            {
+                Datum = geboorte?.Datum?.Map(),
+                Plaats = geboorte?.Plaats.MapPlaats(),
+                Land = geboorte?.Land.MapLand(),
+                InOnderzoek = inOnderzoek.MapGeboorteInOnderzoek()
 
-        };
-  }
+            };
+    }
 
-  public static CommonDtos.Waardetabel? MapPlaats(this CommonDtos.Waardetabel? plaats)
-  {
-    return plaats?.Code == "0000"
-      ? null
-      : plaats?.Map();
-  }
+    public static CommonDtos.Waardetabel? MapPlaats(this CommonDtos.Waardetabel? plaats)
+    {
+        return plaats?.Code == "0000"
+          ? null
+          : plaats?.Map();
+    }
 
-  public static CommonDtos.Waardetabel? MapLand(this CommonDtos.Waardetabel? land)
-  {
-    return land?.Code == "0000"
-      ? null
-      : land?.Map();
-  }
+    public static CommonDtos.Waardetabel? MapLand(this CommonDtos.Waardetabel? land)
+    {
+        return land?.Code == "0000"
+          ? null
+          : land?.Map();
+    }
 
-  private static GeboorteInOnderzoek? MapGeboorteInOnderzoek(this BrpDtos.InOnderzoek? source)
+    private static GeboorteInOnderzoek? MapGeboorteInOnderzoek(this BrpDtos.InOnderzoek? source)
     {
         return source?.AanduidingGegevensInOnderzoek switch
         {

@@ -22,7 +22,7 @@ public static class ImmigratieMapper
     private static bool? MapVanuitVerblijfplaatsOnbekend(this BrpDtos.GbaImmigratie? immigratie) =>
         immigratie?.LandVanwaarIngeschreven?.Code == "0000" ? true : null;
 
-  private static BrpApiDtos.ImmigratieInOnderzoek? ImmigratieInOnderzoek(this BrpDtos.InOnderzoek? source)
+    private static BrpApiDtos.ImmigratieInOnderzoek? ImmigratieInOnderzoek(this BrpDtos.InOnderzoek? source)
     {
         if (source == null)
         {
